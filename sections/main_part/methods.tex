@@ -1,0 +1,100 @@
+\subsection{Methods}
+\label{subsec:methods}
+
+Concepts used include \textcolor{red}{\acfi{LIF} neurons}, \textcolor{red}{lateral inhibition}, \textcolor{red}{intrinsic plasticity} and \textcolor{red}{conductance-based synapses}.
+
+\subsubsection{Learning/ \ac{STDP}}
+The synapses of the \ac{SNN} is trained using unsupervised \acfi{STDP}. 
+The weight of a connection between two neurons models a synapse.
+According to \cite{STDP_like}, \ac{STDP} is a synaptic learning rule, which adapts weights of synapses according to their degree of causality, i.e. how likely the input causes postsynaptic neuron excitation.
+\ac{STDP} increases synaptic weight if the postsynaptic neuron reacts immediately after the presynaptic neuron fires, so \cite{object_detection_SNN}.
+According to \cite{object_detection_SNN}, the goal of \ac{STDP} is to strengthen synapses of pre- and postsynaptic neuron pairs, whose postsynaptic neuron reacts immediately after the presynaptic neuron fires.
+If the postsynaptic neuron fires before the presynaptic one the spike has another origin and thus, the synapse is weakened to disconnect the neurons.
+%
+\begin{equation}
+    \centering
+    \label{eq:weight_update}
+    \Delta w = \eta (x_{pre} - x_{tar})(w_{max}-w)^\mu
+\end{equation}
+%
+\autoref{eq:weight_update} from \cite{SNN} calculates the weight change after a \textcolor{red}{postsynaptic spike arrives (i.e. the synapses' importance is changed according to its influence on the postsynaptic neuron)}.
+$\eta$ is the learning rate, presynaptic trace $x_{pre}$ tracks the number of recent presynaptic spikes (decaying if no spike arrives, increased by one otherwise), $\mu$ is the dependence of the update on the previous weight, $x_{tar}$ is the target value of the presynaptic trace at the moment of the postsynaptic spike.
+If $x_{tar}$ is high and thus, many spikes arrived at the postsynaptic neuron, the weight will possibly not be increased (especially if fewer spikes arrived at the presynaptic neuron indicated by  $x_{pre}$).
+
+\cite{SNN} also outlines other \ac{STDP} learning rules.
+Some \ac{STDP} model relies on a teaching signal, which provides the right response. 
+
+
+\subsubsection{Neuron model}
+\label{subsubsec:neuron_model}
+In reality, a neuron fires if the membrane's potential crosses the membrane's threshold $\nu_{thresh}$.
+After firing the neuron's membrane potential is reset and within the next few milliseconds cannot spike again, so \cite{SNN}.
+%
+\begin{equation}
+    \centering
+    \label{eq:membrane_vol_pot}
+    \tau \frac{dV}{dt} = (E_{rest} - V) + g_e(E_{exc} - V) + g_i(E_{inh} - V)
+\end{equation}
+%
+\autoref{eq:membrane_vol_pot} describes the membrane voltage (i.e. the value compared to the threshold $V_{thres}$ which determines whether the neuron fires) change over time constant $\tau$.
+According to \cite{SNN} $E_{rest}$ is the resting membrane potential, $E_{exc}, E_{inh}$ are equilibrium potentials of excitatory and inhibitory synapses, and $g_e, g_i$ the conductances of excitatory and inhibitory synapses (i.e. the influence of respective synapses on membrane voltage of neuron).
+\autoref{eq:membrane_vol_pot} indicates the slope/ change in the membrane voltage over a time constant $\tau$. 
+The voltage decays (i.e. first brackets), in influenced by the excitatory synapses adding to the voltage and the inhibitory synapses subtracting from the voltage.
+
+\subsubsection{Synapse model}
+\label{subsubsec:synapse_model}
+The synapses are the influence of a presynaptic neuron on another neuron.
+If a presynaptic spike arrives the weight $w_{i,j}$ between neuron $i$ and neuron $j$ is added to $g_e$.
+Otherwise, $g_e$ is decaying.
+%
+\begin{equation}
+    \centering
+    \label{eq:exc_conductance}
+    \tau_{g_e} \frac{dg_e}{dt} = - g_e
+\end{equation}
+%
+The decay is computed using \autoref{eq:exc_conductance}.
+The slope/ change over time constant $\tau$ is a \textcolor{red}{exponential decay}.
+
+
+\subsubsection{\ac{LIF} neurons}
+As depicted in \autoref{eq:membrane_vol_pot} from \autoref{subsubsec:neuron_model}, the membrane potential/ voltage $V$'s current leaks out of the neuron (i.e. decays without incoming spikes over time).
+Due to the exponential decay, these neurons are called \ac{LIF} neurons.
+
+
+\subsubsection{lateral inhibition}
+Since every inhibitory neuron is connected to all excitatory neurons except the one it is already connected to, whenever a spike is triggered in an excitatory neuron all inhibitory neurons receive a spike as well.
+Hence, neurons that did not fire are inhibited and thus, lateral inhibition is created.
+
+
+\subsubsection{intrinsic plasticity}
+
+
+\subsubsection{conductance-based synapses}
+
+
+\subsubsection{Homoeostasis}
+In order to ensure the neuron have a similar firing rate, the \eN{}'s membrane threshold is calculated by $\nu_{thresh} + \theta$, where $\theta$ is increased every time the neuron fires and exponentially decaying otherwise.
+Since the membrane potential is limited to $E_{exc}$ a neuron stops firing while its membrane threshold is higher than the membrane potential.
+
+This technique countersteers the effect of inhomogeneity of the input and the lateral inhibition.
+
+
+\subsubsection{Input encoding}
+Wozu?\\
+Wie?\\
+$60,000$ training examples, $10,000$ test examples of $28x28$ pixel images of the digits 0 to 9 compose the MNIST dataset used in \cite{SNN}.
+Inputs are Poison spike trains, which are presented for 350ms.
+The intensity of a pixel (0 to 255) is proportional to the firing rates (0 to $65.75 Hz$) of the neurons.
+If the network does not react to the input, the maximum input firing rate is augmented until it fires in the desired fashion. 
+
+
+\subsubsection{Training}
+In order to allow all variables to decay between images are a 150ms phase without any input.
+
+\subsubsection{Testing}
+First the learning rate is set to zero to fix the neuron's threshold.
+After that the training set is presented once more.
+The highest response to the ten digit classes is used to assign a class to each neuron, i.e. labels are used.
+The predicted value for an input is the class whose neurons have the highest average firing rate.
+The classification accuracy is determined on the MNIST test set.

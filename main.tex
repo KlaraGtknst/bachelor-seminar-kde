@@ -1,0 +1,68 @@
+\documentclass[runningheads]{llncs}
+\usepackage[T1]{fontenc}
+\usepackage{graphicx}
+\usepackage{subfiles}
+\usepackage[nolist]{acronym}
+% \usepackage[backend=biber,style=numeric,]{biblatex}
+\usepackage[english=american]{csquotes}
+\usepackage{hyperref}
+\usepackage{color}
+\usepackage{amssymb}
+\usepackage[fleqn,tbtags]{mathtools}
+\usepackage{minted}
+\usepackage{amsmath}
+% \usepackage{nccmath}
+\usepackage{caption}
+\usepackage{algorithm}
+% \usepackage{algpseudocode}
+% \usepackage{subcaption}
+\usepackage{xcolor} % to access the named colour LightGray
+\definecolor{LightGray}{gray}{0.9}
+
+% alter autoref visualization
+\def\sectionautorefname{Section}
+% subfig setup
+\usepackage[labelformat=simple]{subfig}
+\renewcommand\thesubfigure{(\alph{subfigure})}
+% \renewcommand{\subfigureautorefname}{\figureautorefname}
+
+% \addbibresource{literatur.bib}
+
+\renewcommand*\contentsname{Inhaltsverzeichnis}
+\renewcommand*\listfigurename{Abbildungsverzeichnis}
+\renewcommand*\listtablename{Tabellenverzeichnis}
+\newcommand\algorithmautorefname{Algorithm}
+% Content
+\newcommand\pLayer{preprocessing layer}
+\newcommand\eN{excitatory neuron}
+\newcommand\iN{inhibitory neuron}
+\newcommand\hMethod{homoeostasis}
+
+\begin{document}
+
+\title{Optimization of Spiking Neural Network}
+\author{Klara M. Gutekunst}
+\institute{University of Kassel, 34125 Kassel, Germany
+\email{klara.gutekunst@student.uni-kassel.com}}
+
+\maketitle
+% introduction
+\input{sections/introduction/abstract}
+\input{sections/introduction/introduction}
+
+% main part
+\input{sections/main_part/main_part}
+
+% end section
+\input{sections/results}
+\input{sections/discussion} 
+\input{sections/conclusion.tex}
+
+\input{sections/abkuerzungsverzeichnis}
+
+%\bibliographystyle{alphadin}
+\bibliographystyle{splncs04}
+\bibliography{literatur}
+
+% \printbibliography
+\end{document}

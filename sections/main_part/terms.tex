@@ -1,0 +1,25 @@
+\newcommand\rbModel{Rate-based model}
+\newcommand\sbModel{Spike-based model}
+\subsection{Terms}
+\label{subsec:terms}
+
+In this section, technical terms specific to the domain are defined and briefly discussed.
+
+\subsubsection{Spike trains}
+are defined as multiple spikes.
+\textcolor{red}{
+They are encoded as a 1-bit array, where each entry indicates whether a spike (1) or no spike (0) occurred at a certain point in time.
+}
+
+\subsubsection{\rbModel{}}
+\textcolor{red}{With regard to the question of how the neurons communicate with each other according to \cite{spike_vs_rate} there are two central beliefs:}
+The firing rate of a neuron is an abstract measurement of the average number of spikes per duration/ neuron/ trials.
+The firing rate captures most of the information, hence the timing of spikes is meaningless.
+Rate-based learning uses backpropagation during training, but converts the \ac{ANN} to a \ac{SNN} afterwards. 
+According to \cite{SNN} and \cite{STDP_like} the usage of backpropagation is biologically unrealistic.
+
+\subsubsection{\sbModel{}}
+According to the \sbModel{}, the firing rate is not sufficient to describe the neural activity.
+The spike timing defines spike trains and individual spikes.
+
+\textcolor{red}{As stated in \cite{spike_vs_rate}, the \rbModel{} assumption is stronger than the one of the \sbModel{}.}
