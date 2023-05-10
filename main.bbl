@@ -3,16 +3,16 @@
 \providecommand{\urlprefix}{URL }
 \providecommand{\doi}[1]{https://doi.org/#1}
 
+\bibitem{STDP_like}
+Beyel, M., Dutt, N.D., Krichmar, J.L.: Categorization and decision-making in a neurobiologically plausible spiking network using a stdp-like learning rule. Elsevier  \textbf{48},  109--124 (2013)
+
 \bibitem{spike_vs_rate}
 Brette, R.: Philosophy of the spike: Rate-based vs. spike-based theories of the brain. Frontiers in Systems Neuroscience  \textbf{9},  1--14 (2015)
 
-\bibitem{object_detection_SNN}
-Jeong, J.K..S.P.K..J.K..H.H..D.P..U.: Object shape recognition using tactile sensor arrays by a spiking neural network with unsupervised learning. IEEE pp. 178--183 (2020)
-
-\bibitem{STDP_like}
-Krichmar, M.B..N.D.D..J.L.: Categorization and decision-making in a neurobiologically plausible spiking network using a stdp-like learning rule. Elsevier  \textbf{48},  109--124 (2013)
-
 \bibitem{SNN}
-\and Matthew~Cook, P.U.D.: Unsupervised learning of digit recognition using spike-timing-dependent plasticity. Frontiers in Computational Neuroscience  \textbf{9}, ~1--8 (2015)
+Cook, M., Diehl, P.U.: Unsupervised learning of digit recognition using spike-timing-dependent plasticity. Frontiers in Computational Neuroscience  \textbf{9}, ~1--8 (2015)
+
+\bibitem{object_detection_SNN}
+Kim, J., Kim, S.P., Hwang, H., Park, D., Jeong, U.: Object shape recognition using tactile sensor arrays by a spiking neural network with unsupervised learning. IEEE pp. 178--183 (2020)
 
 \end{thebibliography}
