@@ -3,11 +3,11 @@
 
 Concepts used include \textcolor{red}{\acfi{LIF} neurons}, \textcolor{red}{lateral inhibition}, \textcolor{red}{intrinsic plasticity} and \textcolor{red}{conductance-based synapses}.
 
-\subsubsection{Learning/ \ac{STDP}}
-The synapses of the \ac{SNN} is trained using unsupervised \acfi{STDP}. 
+\subsubsection{Learning using \ac{STDP}}
+The synapses of the \ac{SNN} are trained using unsupervised \acfi{STDP}. 
 The weight of a connection between two neurons models a synapse.
 According to \cite{STDP_like}, \ac{STDP} is a synaptic learning rule, which adapts weights of synapses according to their degree of causality, i.e. how likely the input causes postsynaptic neuron excitation.
-\ac{STDP} increases synaptic weight if the postsynaptic neuron reacts immediately after the presynaptic neuron fires, so \cite{object_detection_SNN}.
+\ac{STDP} increases synaptic weight if the postsynaptic neuron reacts immediately after the presynaptic neuron fires, as stated by \cite{object_detection_SNN}.
 According to \cite{object_detection_SNN}, the goal of \ac{STDP} is to strengthen synapses of pre- and postsynaptic neuron pairs, whose postsynaptic neuron reacts immediately after the presynaptic neuron fires.
 If the postsynaptic neuron fires before the presynaptic one the spike has another origin and thus, the synapse is weakened to disconnect the neurons.
 %
@@ -18,17 +18,17 @@ If the postsynaptic neuron fires before the presynaptic one the spike has anothe
 \end{equation}
 %
 \autoref{eq:weight_update} from \cite{SNN} calculates the weight change after a \textcolor{red}{postsynaptic spike arrives (i.e. the synapses' importance is changed according to its influence on the postsynaptic neuron)}.
-$\eta$ is the learning rate, presynaptic trace $x_{pre}$ tracks the number of recent presynaptic spikes (decaying if no spike arrives, increased by one otherwise), $\mu$ is the dependence of the update on the previous weight, $x_{tar}$ is the target value of the presynaptic trace at the moment of the postsynaptic spike.
-If $x_{tar}$ is high and thus, many spikes arrived at the postsynaptic neuron, the weight will possibly not be increased (especially if fewer spikes arrived at the presynaptic neuron indicated by  $x_{pre}$).
+$\eta$ is the learning rate, presynaptic trace $x_{pre}$ tracks the number of recent presynaptic spikes (decaying if no spike arrives, increased by one otherwise), $\mu$ is the dependence of the update on the previous weight and $x_{tar}$ is the target value of the presynaptic trace at the moment of the postsynaptic spike.
+If $x_{tar}$ is high, i.e. many spikes arrived at the postsynaptic neuron, the weight will possibly not be increased (especially if fewer spikes arrived at the presynaptic neuron indicated by  $x_{pre}$).
 
-\cite{SNN} also outlines other \ac{STDP} learning rules.
-Some \ac{STDP} model relies on a teaching signal, which provides the right response. 
+The authors of \cite{SNN} also outline other \ac{STDP} learning rules.
+Some \ac{STDP} models rely on a teaching signal, which provides the right response. 
 
 
 \subsubsection{Neuron model}
 \label{subsubsec:neuron_model}
 In reality, a neuron fires if the membrane's potential crosses the membrane's threshold $\nu_{thresh}$.
-After firing the neuron's membrane potential is reset and within the next few milliseconds cannot spike again, so \cite{SNN}.
+On the report of \cite{SNN}, after firing the neuron's membrane potential is reset and within the next few milliseconds cannot spike again.
 %
 \begin{equation}
     \centering
@@ -37,15 +37,14 @@ After firing the neuron's membrane potential is reset and within the next few mi
 \end{equation}
 %
 \autoref{eq:membrane_vol_pot} describes the membrane voltage (i.e. the value compared to the threshold $V_{thres}$ which determines whether the neuron fires) change over time constant $\tau$.
-According to \cite{SNN} $E_{rest}$ is the resting membrane potential, $E_{exc}, E_{inh}$ are equilibrium potentials of excitatory and inhibitory synapses, and $g_e, g_i$ the conductances of excitatory and inhibitory synapses (i.e. the influence of respective synapses on membrane voltage of neuron).
-\autoref{eq:membrane_vol_pot} indicates the slope/ change in the membrane voltage over a time constant $\tau$. 
-The voltage decays (i.e. first brackets), in influenced by the excitatory synapses adding to the voltage and the inhibitory synapses subtracting from the voltage.
+According to \cite{SNN} $E_{rest}$ is the resting membrane potential, $E_{exc}, E_{inh}$ are equilibrium potentials of excitatory and inhibitory synapses, and $g_e, g_i$ the conductances of excitatory and inhibitory synapses (i.e. the influence of respective synapses on membrane voltage of neuron). 
+The voltage decays (first parenthesis) and is influenced by the excitatory synapses adding to the voltage and the inhibitory synapses subtracting from the voltage.
 
 \subsubsection{Synapse model}
 \label{subsubsec:synapse_model}
-The synapses are the influence of a presynaptic neuron on another neuron.
-If a presynaptic spike arrives the weight $w_{i,j}$ between neuron $i$ and neuron $j$ is added to $g_e$.
-Otherwise, $g_e$ is decaying.
+The synapses' conductance $g_e$/$g_i$ ($e$ excitatory, $i$ inhibitory) model the influence of a presynaptic neuron on another neuron.
+If a presynaptic spike arrives at the synapse the weight $w_{i,j}$ between neuron $i$ and neuron $j$ is added to $g_e$/$g_i$.
+Otherwise, $g_e$/$g_i$ is decaying.
 %
 \begin{equation}
     \centering
@@ -53,8 +52,8 @@ Otherwise, $g_e$ is decaying.
     \tau_{g_e} \frac{dg_e}{dt} = - g_e
 \end{equation}
 %
-The decay is computed using \autoref{eq:exc_conductance}.
-The slope/ change over time constant $\tau$ is a \textcolor{red}{exponential decay}.
+The decay is computed using \autoref{eq:exc_conductance} from \cite{SNN}.
+The change over time constant $\tau$ is an \textcolor{red}{exponential decay}.
 
 
 \subsubsection{\ac{LIF} neurons}
@@ -74,8 +73,8 @@ Hence, neurons that did not fire are inhibited and thus, lateral inhibition is c
 
 
 \subsubsection{Homoeostasis}
-In order to ensure the neuron have a similar firing rate, the \eN{}'s membrane threshold is calculated by $\nu_{thresh} + \theta$, where $\theta$ is increased every time the neuron fires and exponentially decaying otherwise.
-Since the membrane potential is limited to $E_{exc}$ a neuron stops firing while its membrane threshold is higher than the membrane potential.
+In order to ensure the neurons have a similar firing rate, the \eN{}'s membrane threshold is calculated by $\nu_{thresh} + \theta$, where $\theta$ is increased every time the neuron fires and exponentially decaying otherwise.
+Since the membrane potential is limited to $E_{exc}$ a neuron stops firing when its membrane threshold is higher than the membrane potential.
 
 This technique countersteers the effect of inhomogeneity of the input and the lateral inhibition.
 
@@ -90,11 +89,11 @@ If the network does not react to the input, the maximum input firing rate is aug
 
 
 \subsubsection{Training}
-In order to allow all variables to decay between images are a 150ms phase without any input.
+In order to allow all variables to decay there is 150ms phase without any input between images.
 
 \subsubsection{Testing}
-First the learning rate is set to zero to fix the neuron's threshold.
+First the learning rate $\eta$ is set to zero to appoint the neuron's threshold.
 After that the training set is presented once more.
-The highest response to the ten digit classes is used to assign a class to each neuron, i.e. labels are used.
+The highest response among the ten digit classes is used to assign a class to each neuron, i.e. labels are used.
 The predicted value for an input is the class whose neurons have the highest average firing rate.
 The classification accuracy is determined on the MNIST test set.

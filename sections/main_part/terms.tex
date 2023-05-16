@@ -13,12 +13,13 @@ They are encoded as a 1-bit array, where each entry indicates whether a spike (1
 
 \subsubsection{\rbModel{}}
 According to \cite{spike_vs_rate} there are two central beliefs with regard to the question of how the neurons communicate with each other.
-The firing rate of a neuron is an abstract measurement of the average number of spikes per duration/ neuron/ trial.
+The firing rate of a neuron is an abstract measurement of the average number of spikes per unit (e.g. duration, neuron, trial).
 The \rbModel{} believes that the firing rate captures most of the information, hence the timing of spikes is meaningless.
-Rate-based learning uses backpropagation during training, but converts the \ac{ANN} to a \ac{SNN} afterwards. 
-According to \cite{SNN} and \cite{STDP_like} the usage of backpropagation is biologically unrealistic.
 
 \subsubsection{\sbModel{}}
 According to the \sbModel{}, the firing rate is not sufficient to describe the neural activity.
 The spike timing defines spike trains and individual spikes.
 As stated in \cite{spike_vs_rate}, the \rbModel{} assumption is stronger than the one of the \sbModel{}.
+
+\subsubsection{Rate-based learning} uses backpropagation during training, but converts the \ac{ANN} to a \ac{SNN} (i.e. transfers trained weights) afterwards. 
+According to \cite{SNN} and \cite{STDP_like} the usage of backpropagation is biologically unrealistic.
