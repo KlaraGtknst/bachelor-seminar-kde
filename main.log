@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.141592653-2.6-1.40.25 (TeX Live 2023) (preloaded format=pdflatex 2023.5.3)  22 MAY 2023 15:40
+This is pdfTeX, Version 3.141592653-2.6-1.40.25 (TeX Live 2023) (preloaded format=pdflatex 2023.5.3)  22 MAY 2023 15:55
 entering extended mode
  \write18 enabled.
  file:line:error style messages enabled.
@@ -702,10 +702,10 @@ Here is how much of TeX's memory you used:
  14 hyphenation exceptions out of 8191
  77i,6n,81p,479b,738s stack positions out of 10000i,1000n,20000p,200000b,200000s
  <c:/Users/klara/.texlive2023/texmf-var/fonts/pk/ljfour/jknappen/ec/ecbx1000.600pk> <c:/Users/klara/.texlive2023/texmf-var/fonts/pk/ljfour/jknappen/ec/ecti1000.600pk> <c:/Users/klara/.texlive2023/texmf-var/fonts/pk/ljfour/jknappen/ec/ecbx1200.600pk> <c:/Users/klara/.texlive2023/texmf-var/fonts/pk/ljfour/jknappen/ec/tcrm0900.600pk> <c:/Users/klara/.texlive2023/texmf-var/fonts/pk/ljfour/jknappen/ec/ecti0900.600pk> <c:/Users/klara/.texlive2023/texmf-var/fonts/pk/ljfour/jknappen/ec/ecbx0900.600pk> <c:/Users/klara/.texlive2023/texmf-var/fonts/pk/ljfour/jknappen/ec/ectt0900.600pk> <c:/Users/klara/.texlive2023/texmf-var/fonts/pk/ljfour/jknappen/ec/ecrm0900.600pk> <c:/Users/klara/.texlive2023/texmf-var/fonts/pk/ljfour/jknappen/ec/ecrm1000.600pk> <c:/Users/klara/.texlive2023/texmf-var/fonts/pk/ljfour/jknappen/ec/ecbx1440.600pk><c:/texlive/2023/texmf-dist/fonts/type1/public/amsfonts/cm/cmmi10.pfb><c:/texlive/2023/texmf-dist/fonts/type1/public/amsfonts/cm/cmmi5.pfb><c:/texlive/2023/texmf-dist/fonts/type1/public/amsfonts/cm/cmmi7.pfb><c:/texlive/2023/texmf-dist/fonts/type1/public/amsfonts/cm/cmr10.pfb><c:/texlive/2023/texmf-dist/fonts/type1/public/amsfonts/cm/cmsy10.pfb>
-Output written on main.pdf (7 pages, 229405 bytes).
+Output written on main.pdf (7 pages, 229759 bytes).
 PDF statistics:
- 509 PDF objects out of 1000 (max. 8388607)
- 171 compressed objects within 2 object streams
+ 511 PDF objects out of 1000 (max. 8388607)
+ 172 compressed objects within 2 object streams
  50 named destinations out of 1000 (max. 500000)
  14 words of extra memory for PDF output out of 10000 (max. 10000000)
 
