@@ -12,15 +12,17 @@ According to \cite{DIET_SNN} an '1' indicates a spike, whereas '0' indicates ina
 The authors note that the number of timesteps determines the discretization error.
 A timestep is dependent on the hardware and its associated number of computations performable.
 
-\subsubsection{\rbModel{}}
+\subsubsection{Communication of neurons}
 According to \cite{spike_vs_rate} there are two central beliefs with regard to the question of how the neurons communicate with each other.
-The firing rate of a neuron is an abstract measurement of the average number of spikes per unit (e.g. duration, neuron, trial).
 The \rbModel{} believes that the firing rate captures most of the information, hence the timing of spikes is meaningless.
+The firing rate of a neuron is an abstract measurement of the average number of spikes per unit (e.g. duration, neuron, trial).
 
-\subsubsection{\sbModel{}}
 According to the \sbModel{}, the firing rate is not sufficient to describe the neural activity.
 The spike timing defines spike trains and individual spikes.
 As stated in \cite{spike_vs_rate}, the \rbModel{} assumption is stronger than the one of the \sbModel{}.
 
-\subsubsection{Rate-based learning} uses backpropagation during training, but converts the \ac{ANN} to a \ac{SNN} (i.e. transfers trained weights) afterwards. 
+\subsubsection{Rate-based learning} is a training method for \ac{SNN} which uses backpropagation during training. 
+%but converts the \ac{ANN} to a \ac{SNN} (i.e. transfers trained weights) afterwards. 
+First an \ac{ANN} is trained with backpropagation with some restrictions as stated in \cite{DIET_SNN}.
+Then a \ac{SNN} with \ac{IF} neurons and the weights of the \ac{ANN} is initialized.
 According to \cite{SNN} and \cite{STDP_like} the usage of backpropagation is biologically unrealistic.

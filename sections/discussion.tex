@@ -14,18 +14,25 @@ Therefore, the ability to generalize on new datasets depends on the inputs' simi
 % original paper
 The authors of \cite{SNN} 
 
-to other implementations
-
-to biology
+\textcolor{red}{to other implementations, to biology}
 
 % DIET-SNN paper
+
+\begin{wrapfigure}{l}{0.25\textwidth} %this figure will be at the right
+    \centering
+    \includegraphics[width=0.25\textwidth]{pictures/DIET_SNN_pipeline.jpg}
+    \caption{\ac{DIET}-\ac{SNN} training pipeline from \cite{DIET_SNN}}
+    \label{fig:training_pipeline_DIET_SNN}
+\end{wrapfigure}
+
 The \ac{DIET}-\ac{SNN} model from \cite{DIET_SNN} is an entriely different approach to those discussed before.
-An \ac{ANN} is trained and thereafter converted into a \ac{SNN}.
+As depicted in \autoref{fig:training_pipeline_DIET_SNN}, an \ac{ANN} is trained and thereafter converted into a \ac{SNN}.
 The initialized parameters speed up the subsequent training wit spike-based backpropagation.
 Instead of using a Poisson generator (rate-coding: converting analog values to spike-train),the image pixels are directly applied as input.
 The first convolutional layer is trained to encode them as spikes.
 
-
+% to ensure text alignment okay after wrapfigure
+{}
 \section{Evaluation}
 \label{sec:evaluation}
 
