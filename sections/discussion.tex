@@ -18,6 +18,13 @@ to other implementations
 
 to biology
 
+% DIET-SNN paper
+The \ac{DIET}-\ac{SNN} model from \cite{DIET_SNN} is an entriely different approach to those discussed before.
+An \ac{ANN} is trained and thereafter converted into a \ac{SNN}.
+The initialized parameters speed up the subsequent training wit spike-based backpropagation.
+Instead of using a Poisson generator (rate-coding: converting analog values to spike-train),the image pixels are directly applied as input.
+The first convolutional layer is trained to encode them as spikes.
+
 
 \section{Evaluation}
 \label{sec:evaluation}
