@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.141592653-2.6-1.40.25 (TeX Live 2023) (preloaded format=pdflatex 2023.5.3)  23 MAY 2023 15:15
+This is pdfTeX, Version 3.141592653-2.6-1.40.25 (TeX Live 2023) (preloaded format=pdflatex 2023.5.3)  23 MAY 2023 15:16
 entering extended mode
  \write18 enabled.
  file:line:error style messages enabled.
@@ -696,7 +696,7 @@ although it is yet undefined on input line 9.
 Package acronym Info: Label `acro:RT' newly defined as it shall be overridden
 although it is yet undefined on input line 9.
  [6]) (./sections/end/comparison.tex
-<pictures/DIET_SNN_pipeline.jpg, id=171, 539.76656pt x 532.99126pt>
+<pictures/DIET_SNN_pipeline.jpg, id=173, 539.76656pt x 532.99126pt>
 File: pictures/DIET_SNN_pipeline.jpg Graphic file (type jpg)
 <use pictures/DIET_SNN_pipeline.jpg>
 Package pdftex.def Info: pictures/DIET_SNN_pipeline.jpg  used on input line 26.
@@ -726,10 +726,10 @@ Here is how much of TeX's memory you used:
  14 hyphenation exceptions out of 8191
  77i,7n,81p,479b,574s stack positions out of 10000i,1000n,20000p,200000b,200000s
  <c:/Users/klara/.texlive2023/texmf-var/fonts/pk/ljfour/jknappen/ec/ecbx1000.600pk> <c:/Users/klara/.texlive2023/texmf-var/fonts/pk/ljfour/jknappen/ec/ecti1000.600pk> <c:/Users/klara/.texlive2023/texmf-var/fonts/pk/ljfour/jknappen/ec/ecbx1200.600pk> <c:/Users/klara/.texlive2023/texmf-var/fonts/pk/ljfour/jknappen/ec/tcrm0900.600pk> <c:/Users/klara/.texlive2023/texmf-var/fonts/pk/ljfour/jknappen/ec/ecti0900.600pk> <c:/Users/klara/.texlive2023/texmf-var/fonts/pk/ljfour/jknappen/ec/ecbx0900.600pk> <c:/Users/klara/.texlive2023/texmf-var/fonts/pk/ljfour/jknappen/ec/ectt0900.600pk> <c:/Users/klara/.texlive2023/texmf-var/fonts/pk/ljfour/jknappen/ec/ecrm0900.600pk> <c:/Users/klara/.texlive2023/texmf-var/fonts/pk/ljfour/jknappen/ec/ecrm1000.600pk> <c:/Users/klara/.texlive2023/texmf-var/fonts/pk/ljfour/jknappen/ec/ecbx1440.600pk><c:/texlive/2023/texmf-dist/fonts/type1/public/amsfonts/cm/cmex10.pfb><c:/texlive/2023/texmf-dist/fonts/type1/public/amsfonts/cm/cmmi10.pfb><c:/texlive/2023/texmf-dist/fonts/type1/public/amsfonts/cm/cmmi5.pfb><c:/texlive/2023/texmf-dist/fonts/type1/public/amsfonts/cm/cmmi7.pfb><c:/texlive/2023/texmf-dist/fonts/type1/public/amsfonts/cm/cmr10.pfb><c:/texlive/2023/texmf-dist/fonts/type1/public/amsfonts/cm/cmr7.pfb><c:/texlive/2023/texmf-dist/fonts/type1/public/amsfonts/cm/cmsy10.pfb><c:/texlive/2023/texmf-dist/fonts/type1/public/amsfonts/cm/cmsy7.pfb>
-Output written on main.pdf (8 pages, 344413 bytes).
+Output written on main.pdf (8 pages, 344440 bytes).
 PDF statistics:
- 580 PDF objects out of 1000 (max. 8388607)
- 209 compressed objects within 3 object streams
+ 582 PDF objects out of 1000 (max. 8388607)
+ 210 compressed objects within 3 object streams
  53 named destinations out of 1000 (max. 500000)
  19 words of extra memory for PDF output out of 10000 (max. 10000000)
 
