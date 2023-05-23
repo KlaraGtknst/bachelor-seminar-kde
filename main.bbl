@@ -18,4 +18,7 @@ Cook, M., Diehl, P.U.: Unsupervised learning of digit recognition using spike-ti
 \bibitem{object_detection_SNN}
 Kim, J., Kim, S.P., Hwang, H., Park, D., Jeong, U.: Object shape recognition using tactile sensor arrays by a spiking neural network with unsupervised learning. IEEE pp. 178--183 (2020)
 
+\bibitem{DIET_SNN}
+Rathi, N., Roy, K.: Diet-snn: A low-latency spiking neural network with direct input encoding and threshold optimization. IEEE Transactions on Neural Networks and Learning Systems pp.~1--9 (2021)
+
 \end{thebibliography}

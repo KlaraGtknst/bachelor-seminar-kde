@@ -7,9 +7,10 @@ In this section, technical terms specific to the domain are defined and briefly 
 
 \subsubsection{Spike trains}
 are defined as multiple spikes.
-\textcolor{red}{
-They are encoded as a 1-bit array, where each entry indicates whether a spike (1) or no spike (0) occurred at a certain point in time.
-}
+They are binary signals distributed over time.
+According to \cite{DIET_SNN} an '1' indicates a spike, whereas '0' indicates inactivity.
+The authors note that the number of timesteps determines the discretization error.
+A timestep is dependent on the hardware and its associated number of computations performable.
 
 \subsubsection{\rbModel{}}
 According to \cite{spike_vs_rate} there are two central beliefs with regard to the question of how the neurons communicate with each other.
