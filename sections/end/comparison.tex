@@ -17,10 +17,11 @@ The authors of \cite{SNN}
 \textcolor{red}{to other implementations, to biology}
 
 % DIET-SNN paper
-
-\begin{wrapfigure}{l}{0.25\textwidth} %this figure will be at the right
+% Captial L to avoid strange behaviour since figure is close to page break
+\begin{wrapfigure}{L}{0.1\textwidth}
     \centering
-    \includegraphics[width=0.25\textwidth]{pictures/DIET_SNN_pipeline.jpg}
+    \vspace{-20pt}
+    \includegraphics[width=0.1\textwidth]{pictures/DIET_SNN_pipeline.jpg}
     \caption{\ac{DIET}-\ac{SNN} training pipeline from \cite{DIET_SNN}}
     \label{fig:training_pipeline_DIET_SNN}
 \end{wrapfigure}
@@ -30,16 +31,3 @@ As depicted in \autoref{fig:training_pipeline_DIET_SNN}, an \ac{ANN} is trained 
 The initialized parameters speed up the subsequent training wit spike-based backpropagation.
 Instead of using a Poisson generator (rate-coding: converting analog values to spike-train),the image pixels are directly applied as input.
 The first convolutional layer is trained to encode them as spikes.
-
-% to ensure text alignment okay after wrapfigure
-{}
-\section{Evaluation}
-\label{sec:evaluation}
-
-\subsubsection{Inhibition}
-
-\subsubsection{Spike-based Learning in ML}
-
-\subsubsection{Competitive Learning}
-
-\subsubsection{Robustness}
