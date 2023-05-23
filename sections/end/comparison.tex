@@ -29,18 +29,18 @@ Therefore, the ability to generalize on new datasets depends on the inputs' simi
 \end{wrapfigure}
 
 The \ac{DIET}-\ac{SNN} model from \cite{DIET_SNN} is an entriely different approach to those discussed before.
+This alternative approach uses supervised learning.
 As depicted in \autoref{fig:training_pipeline_DIET_SNN}, an \ac{ANN} is trained and thereafter converted into a \ac{SNN}.
-The initialized parameters speed up the subsequent training wit spike-based backpropagation.
-Instead of using a Poisson generator (rate-coding: converting analog values to spike-train),the image pixels are directly applied as input.
-The first convolutional layer is trained to encode them as spikes.
+The authors of \cite{DIET_SNN} outline the \ac{ANN}-\ac{SNN}-conversion in more detail.
+The initialized parameters speed up the subsequent training with spike-based backpropagation.
+The converted \ac{SNN} is trained using error-backpropagation.
 
-\textcolor{red}{
-This alternative approach uses supervised learning of \acs{DIET}-\ac{SNN} proposed by \cite{DIET_SNN}.
+Instead of using a Poisson generator (rate-coding: converting analog values to spike-train), the image pixels are directly applied as input.
 The \ac{DIET}-\ac{SNN} model's first layer is trained to encode the input as spikes.
 The pixel intensities of an image are directly applied to the first convolutional layer's \ac{LIF} neurons.
 The neurons accumulate the weighted pixel and generate ouput spikes.
 This encoding is learned beforehand using gradient-descent.
-%
+
 \begin{equation}
     \centering
     \label{eq:DIET-SNN-membrane-potential}
@@ -56,4 +56,7 @@ $v_i$ the threshold of neuron $i$.
 The first term calculates the leakage of the neuron,
 the second term the accumulated input of the presynaptic neurons and
 the third term enables a soft reset (reducing by threshold $v_i$ instead of reset to zero) of the membrane potential after a spike was generated.
-}
+
+The neurons of the output layer accumulate their inputs without any leakage.
+The output is not a spike, but a softmax function of the membrane potential.
+

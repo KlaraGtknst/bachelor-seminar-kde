@@ -89,8 +89,10 @@ This technique countersteers the effect of inhomogeneity of the input and the la
 
 
 \subsubsection{Input encoding}
-Wozu?\\
-Wie?\\
+According to \cite{DIET_SNN} \acp{SNN} transmit information through spikes and thus, analog values have to be encoded into spikes.
+As stated in \cite{DIET_SNN}, there are different types of encodings based on certain beliefs, 
+for instance those outlined in \autoref{subsubsec:communication}.
+The authors of \cite{SNN} propose the following method to encode analog values into spikes:
 $60,000$ training examples, $10,000$ test examples of $28x28$ pixel images of the digits 0 to 9 compose the MNIST dataset used in \cite{SNN}.
 Inputs are Poison spike trains, which are presented for 350ms.
 The intensity of a pixel (0 to 255) is proportional to the firing rates (0 to $65.75 Hz$) of the neurons.
