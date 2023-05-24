@@ -9,7 +9,19 @@ creates a soft winner-take-all mechanism.
 
 
 \subsubsection{Spike-based Learning in ML}
+According to \cite{SNN}, spike-based is preferable learning to rate-based learning in terms of power consumption during the learning procedure and for 
+dynamically adaptable systems.
+The authors emphasise the energy efficience of \acp{SNN} on neuromorphic hardware.
+
 
 \subsubsection{Competitive Learning}
+The goal of the \ac{SNN}-model presented in \cite{SNN} is to train its neurons to represent prototypical inputs or an average of similar inputs.
+To adchieve this goal, the weights of spiking neurons are adapted to become more similar to the input.
+Lateral inhibition prevents too many neurons from spiking and thus, prevents them from becoming to similar in the course of adapting to the input.
+This results in the receptive fields of the neurons explorating the input space.
+To ensure that a approximately constant number of neurons' receptive fields is similiar to an input, 
+homoeostasis guarantees similiar firing rates among the neurons.
+According to \cite{SNN}, the learning procedure is similar to k-means-like learning algorithms.
+Hence, increasing the number of neurons may result in at most 95-97 \% accuracy.
 
 \subsubsection{Robustness}

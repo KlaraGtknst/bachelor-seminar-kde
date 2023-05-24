@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.141592653-2.6-1.40.25 (TeX Live 2023) (preloaded format=pdflatex 2023.5.3)  24 MAY 2023 10:08
+This is pdfTeX, Version 3.141592653-2.6-1.40.25 (TeX Live 2023) (preloaded format=pdflatex 2023.5.3)  24 MAY 2023 10:38
 entering extended mode
  \write18 enabled.
  file:line:error style messages enabled.
@@ -706,7 +706,7 @@ Overfull \hbox (73.73921pt too wide) in paragraph at lines 30--37
  []
 
 [6]) (./sections/end/evaluation.tex) (./sections/end/comparison.tex [7]
-<pictures/DIET_SNN_pipeline.jpg, id=196, 539.76656pt x 532.99126pt>
+<pictures/DIET_SNN_pipeline.jpg, id=201, 539.76656pt x 532.99126pt>
 File: pictures/DIET_SNN_pipeline.jpg Graphic file (type jpg)
 <use pictures/DIET_SNN_pipeline.jpg>
 Package pdftex.def Info: pictures/DIET_SNN_pipeline.jpg  used on input line 26.
@@ -723,7 +723,7 @@ Underfull \hbox (badness 10000) in paragraph at lines 27--27
 
 Package acronym Info: Label `acro:DIET' newly defined as it shall be overridden
 although it is yet undefined on input line 31.
-) (./sections/end/conclusion.tex) (./sections/abkuerzungsverzeichnis.tex) (./main.bbl [8 <./pictures/DIET_SNN_pipeline.jpg>]) [9] (./main.aux)
+) (./sections/end/conclusion.tex [8 <./pictures/DIET_SNN_pipeline.jpg>]) (./sections/abkuerzungsverzeichnis.tex) (./main.bbl) [9] (./main.aux)
 Package rerunfilecheck Info: File `main.out' has not changed.
 (rerunfilecheck)             Checksum: CE8416E7CB722E8D7A6C092406E70B91;245.
  ) 
@@ -734,12 +734,12 @@ Here is how much of TeX's memory you used:
  37042 multiletter control sequences out of 15000+600000
  525273 words of font info for 64 fonts, out of 8000000 for 9000
  14 hyphenation exceptions out of 8191
- 77i,8n,81p,479b,738s stack positions out of 10000i,1000n,20000p,200000b,200000s
+ 77i,8n,81p,479b,609s stack positions out of 10000i,1000n,20000p,200000b,200000s
  <c:/Users/klara/.texlive2023/texmf-var/fonts/pk/ljfour/jknappen/ec/ecbx1000.600pk> <c:/Users/klara/.texlive2023/texmf-var/fonts/pk/ljfour/jknappen/ec/ecti1000.600pk> <c:/Users/klara/.texlive2023/texmf-var/fonts/pk/ljfour/jknappen/ec/ecbx1200.600pk> <c:/Users/klara/.texlive2023/texmf-var/fonts/pk/ljfour/jknappen/ec/tcrm0900.600pk> <c:/Users/klara/.texlive2023/texmf-var/fonts/pk/ljfour/jknappen/ec/ecti0900.600pk> <c:/Users/klara/.texlive2023/texmf-var/fonts/pk/ljfour/jknappen/ec/ecbx0900.600pk> <c:/Users/klara/.texlive2023/texmf-var/fonts/pk/ljfour/jknappen/ec/ectt0900.600pk> <c:/Users/klara/.texlive2023/texmf-var/fonts/pk/ljfour/jknappen/ec/ecrm0900.600pk> <c:/Users/klara/.texlive2023/texmf-var/fonts/pk/ljfour/jknappen/ec/ecrm1000.600pk> <c:/Users/klara/.texlive2023/texmf-var/fonts/pk/ljfour/jknappen/ec/ecbx1440.600pk><c:/texlive/2023/texmf-dist/fonts/type1/public/amsfonts/cm/cmex10.pfb><c:/texlive/2023/texmf-dist/fonts/type1/public/amsfonts/cm/cmmi10.pfb><c:/texlive/2023/texmf-dist/fonts/type1/public/amsfonts/cm/cmmi5.pfb><c:/texlive/2023/texmf-dist/fonts/type1/public/amsfonts/cm/cmmi7.pfb><c:/texlive/2023/texmf-dist/fonts/type1/public/amsfonts/cm/cmr10.pfb><c:/texlive/2023/texmf-dist/fonts/type1/public/amsfonts/cm/cmr7.pfb><c:/texlive/2023/texmf-dist/fonts/type1/public/amsfonts/cm/cmsy10.pfb><c:/texlive/2023/texmf-dist/fonts/type1/public/amsfonts/cm/cmsy7.pfb>
-Output written on main.pdf (9 pages, 351256 bytes).
+Output written on main.pdf (9 pages, 353054 bytes).
 PDF statistics:
- 618 PDF objects out of 1000 (max. 8388607)
- 220 compressed objects within 3 object streams
+ 626 PDF objects out of 1000 (max. 8388607)
+ 223 compressed objects within 3 object streams
  55 named destinations out of 1000 (max. 500000)
  19 words of extra memory for PDF output out of 10000 (max. 10000000)
 
