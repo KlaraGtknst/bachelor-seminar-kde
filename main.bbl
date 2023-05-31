@@ -18,6 +18,9 @@ Cook, M., Diehl, P.U.: Unsupervised learning of digit recognition using spike-ti
 \bibitem{object_detection_SNN}
 Kim, J., Kim, S.P., Hwang, H., Park, D., Jeong, U.: Object shape recognition using tactile sensor arrays by a spiking neural network with unsupervised learning. IEEE pp. 178--183 (2020)
 
+\bibitem{Kolmogorov_Smirnov}
+Lopes, P.H.C., Reid, I., Hobson, P.R.: The two-dimensional kolmogorov-smirnov test. XI International Workshop on Advanced Computing and Analysis Techniques in Physics Research pp. 1--12 (2007)
+
 \bibitem{DIET_SNN}
 Rathi, N., Roy, K.: Diet-snn: A low-latency spiking neural network with direct input encoding and threshold optimization. IEEE Transactions on Neural Networks and Learning Systems pp.~1--9 (2021)
 
