@@ -12,6 +12,9 @@ Bi, G., Poo, M.: Synaptic modifications in cultured hippocampal neurons: depende
 \bibitem{spike_vs_rate}
 Brette, R.: Philosophy of the spike: Rate-based vs. spike-based theories of the brain. Frontiers in Systems Neuroscience  \textbf{9},  1--14 (2015)
 
+\bibitem{STDP_hebbian}
+Caporale, N., Dan, Y.: Spike timing-dependent plasticity: A hebbian learning rule. Annual Review of Neuroscience  \textbf{31},  25--46 (2008)
+
 \bibitem{SNN}
 Cook, M., Diehl, P.U.: Unsupervised learning of digit recognition using spike-timing-dependent plasticity. Frontiers in Computational Neuroscience  \textbf{9}, ~1--8 (2015)
 
