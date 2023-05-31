@@ -32,7 +32,7 @@ The most common misclassification was the digit four as a nine.
     \hline
     \textbf{Training type} & \textbf{(Un-) Supervised}    & \textbf{Learning rule}               & \textbf{Performance range} \\ \hline
     Rate-based             & Supervised                   & different                            & 90-99 \%                   \\ \hline
-    Spike-based            & Supervised                   & different including calcium variable & 91-96 \%                   \\ \hline
+    Spike-based            & Supervised                   & different incl. calcium variable & 91-96 \%                   \\ \hline
     Spike-based            & Unsupervised                 & rectangular/ exponential \ac{STDP}        & 93-95 \%                   \\ \hline
     \end{tabular}
     \caption{Summary of methods compared in \cite{SNN}.}
@@ -44,8 +44,10 @@ A summary of the types compared is given in \autoref{tab:different-training-type
 Rate-based learning methods adchieve the best results.
 Supervised methods imply the usage of a teaching signal.
 The last learning rule from \autoref{tab:different-training-types} denotes the shape of the \ac{STDP} time window.
-The calcium variable \cite{STDP_hebbian} is occasionally used to model the influence of the $Ca^{2+}$ level on activation neurons observed in biology.
-The authors criticise, since neuron which are not in their refactory period can integrate incoming excitatory potentials and thus, 
+The calcium variable \cite{STDP_hebbian} is occasionally used to model the influence of the $Ca^{2+}$ level on activation neurons observed in biology:
+A large $Ca^{2+}$ rise are associated with \ac{LTP}, whereas modest $Ca^{2+}$ rise may result in \ac{LTD}.
+
+The authors of \cite{SNN} criticise, since neuron which are not in their refactory period can integrate incoming excitatory potentials and thus, 
 increase their chance of firing possibly not all neurons have the same chance of firing after the refactory period.
 
 Since the authors of \cite{SNN} have tested multiple different \ac{STDP} rules, as well as different training set sizes, 
