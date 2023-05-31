@@ -22,10 +22,28 @@ The most frequent misclassification was the digit nine as a zero.
 
 
 % Original STDP paper
-In \cite{SNN} the authors compare the performance of the \ac{SNN} model consisting of different numbers of excitatory neurons and different learning rules.
-The visualizations suggest that highest number of excitatory neurons (i.e. 6400) produces the best results for all learning rules.
-The authors also study propose possible reasons for the distribution of misclassified digits.
+In \autoref{img:test_acc} the authors compare the performance of the \ac{SNN} model consisting of different numbers of excitatory neurons and different learning rules.
+The standard deviation of the test accuracy is indicated by the error bars.
+The black line denotes power-law weight dependence \ac{STDP}, the red one denotes exponential weight dependence \ac{STDP}, 
+the green one indicates pre-and-post \ac{STDP}, wheras the blue line's learning rule is triplet \ac{STDP}.
+The differences between these learning rules are explained in \cite{SNN}.
+The visualization suggests that highest number of excitatory neurons (i.e. 6400) produces the best results for all learning rules.
+The authors also study propose possible reasons for the distribution of misclassified digits proposed in \autoref{img:error_analysis}.
 The most common misclassification was the digit four as a nine.
+
+\begin{figure}[http]
+    \begin{minipage}[b]{.5\linewidth}
+         \includegraphics[width=\linewidth]{pictures/num_exc_neurons_test_acc.jpg}
+         \caption{Test accuracy for different learning rules (colored lines) and different number of excitatory neurons from \cite{SNN}.}
+         \label{img:test_acc}
+    \end{minipage}
+    \hspace{0.06\linewidth}% Abstand zwischen Bilder
+    \begin{minipage}[b]{.4\linewidth}
+         \includegraphics[width=\linewidth]{pictures/error_analysis_confusion_matrix.jpg}
+         \caption{Confusion matrix presenting the average results over ten presentations of the 1000 MNIST test set digits from \cite{SNN}.}
+         \label{img:error_analysis}
+    \end{minipage}
+\end{figure}
 
 \begin{table}[]
     \begin{tabular}{|l|l|l|l|}
