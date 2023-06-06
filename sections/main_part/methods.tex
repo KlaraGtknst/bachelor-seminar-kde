@@ -45,11 +45,12 @@ calcium concentration $C(t)$ is within certain bounds, or depression of amount $
 %
 \begin{equation}
     \centering
-    \label{eq:sdsp_weight_update}
+    \label{eq:sdsp_weight_update} 
+    W = 
     \left\{
     \begin{array}{ll}
-        W = W + a, \text{if } V_{mem} > V_{mth} \text{ and } \Theta^l_{up} < C(t) < \theta^h_{up}\\
-        W = W - b, \text{if } V_{mem} \le V_{mth} \text{ and } \Theta^l_{dn} < C(t) < \theta^h_{dn}
+        W + a, \text{if } V_{mem} > V_{mth} \text{ and } \Theta^l_{up} < C(t) < \theta^h_{up}\\
+        W - b, \text{if } V_{mem} \le V_{mth} \text{ and } \Theta^l_{dn} < C(t) < \theta^h_{dn}
     \end{array}
     \right.
 \end{equation}
@@ -62,7 +63,7 @@ with respect to a threshold $\theta_W$ \cite{Synaptic_plasticity}.
 \begin{equation}
     \centering
     \label{eq:sdsp_weight_decay}
-    \frac{dW(t)}{dt}
+    \frac{dW(t)}{dt} = 
     \left\{
     \begin{array}{ll}
         \alpha, \text{if } W(t) > \theta_W\\
