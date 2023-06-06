@@ -3,6 +3,9 @@
 \providecommand{\urlprefix}{URL }
 \providecommand{\doi}[1]{https://doi.org/#1}
 
+\bibitem{Synaptic_plasticity}
+Azghadi, M.R., Iannella, N., Al-Sarawi, S.F., Indiveri, G., Abbott, D.: Spike-based synaptic plasticity in silicon: Design, implementation, application, and challenges. IEEE  \textbf{102},  717--737 (2014)
+
 \bibitem{STDP_like}
 Beyel, M., Dutt, N.D., Krichmar, J.L.: Categorization and decision-making in a neurobiologically plausible spiking network using a stdp-like learning rule. Elsevier  \textbf{48},  109--124 (2013)
 

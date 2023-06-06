@@ -9,6 +9,31 @@ If multiple postsynaptic spikes occur close after presynaptic spikes a \acfi{LTP
 whereas repetive postsynaptic spike before the presynaptic ones lead to \acfi{LTD}.
 
 
+\subsubsection{synaptic plasticity}
+Synapses play a crucial role in \ac{SNN} learning tasks such as recognition and computation \cite{Synaptic_plasticity}.
+Synaptic plasticity rules is the term used for the different mathematical formulaes realised in activity-dependent modification of synaptic weights.
+There is a great variety of synaptic plasticity rules, raging from abstract models to detailed models \cite{Synaptic_plasticity}.
+Instances of abstract models include those based on the timing of spikes, such as Pair-based \ac{STDP} models.
+\autoref{eq:pair_based_weight_update} from \cite{Synaptic_plasticity} shows the weight update of a pair-based \ac{STDP} model.
+$\Delta t = t_{post} - t{pre}$ is the time difference between the presynaptic spike $t_{pre}$ and the postsynaptic spike $t_{post}$.
+If a postsynaptic spike arrives with time window $\tau_+$ before a presynaptic one, potentiation occurs, i.e. the synaptic weight is increased. 
+Analogously to induce depression the postsynaptic spike needs to precede the presynaptic one within time window $\tau_-$.
+The amount of weight change depends on $\Delta t $ and the amplitude parameters $A^+$ and $A^-$.
+%
+\begin{equation}
+    \centering
+    \label{eq:pair_based_weight_update}
+    \Delta w = \left\{
+        \begin{array}{ll}
+        \Delta w^+ = A^+ e^{\frac{-\Delta t}{\tau_+}} & \Delta t > 0 \\
+        \Delta w^- = -A^- e^{\frac{\Delta t}{\tau_-}} & \Delta t \le 0 \\
+        \end{array}
+        \right.
+\end{equation}
+%
+Detailed models on the other hand, may take into account state variables, for instance membrane potential, accounting for more biophysically realistic models.
+
+
 \subsubsection{Learning using \ac{STDP}}
 The synapses of the \ac{SNN} are trained using unsupervised \acfi{STDP}, which has been observed in a rage of species from insects to humans \cite{STDP_hebbian}. 
 The weight of a connection between two neurons models a synapse.
@@ -102,7 +127,7 @@ An 1:1 excitatory to inhibitory neuron ratio is chosen, rather than the biologic
 to reduce computional complexity \cite{SNN}.
 
 
-\subsubsection{intrinsic plasticity}
+
 
 
 \subsubsection{conductance-based synapses}
