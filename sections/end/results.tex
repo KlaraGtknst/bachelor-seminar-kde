@@ -4,10 +4,11 @@
 The model was evaluated on the MNIST dataset.
 The dataset is a suitable Benchmark for the \ac{SNN} model, 
 since it provides different difficulty levels of categorization \cite{STDP_like}.
-However, the MNIST dataset less complex than biological vision \cite{STDP_like}.
+However, the MNIST dataset less complex than biological vision \cite{STDP_like}, 
+since projections on the retina greatly vary due to object position, size, pose, illumination condition and background \cite{multi_scale_STDP}.
 
 The addition to accuracy with regard to the classification of the MNIST dataset impulses \cite{STDP_like} presents \ac{RT} distributions.
-\ac{RT} is defined as the time between the presentation of a stimulus and the response (i.e. the first pool to reach the descision pool).
+\ac{RT} is defined as the time between the presentation of a stimulus and the response (i.e. the first pool to reach the descision threshold).
 Usually, the \ac{RT} of misclassified digits is higher than the \ac{RT} of correctly classified digits.
 However, the network also makes fast errors.
 The results were verified with the Kolmogorov-Smirnov test, 
@@ -25,7 +26,7 @@ The most frequent misclassification was the digit nine as a zero.
 In \autoref{img:test_acc} the authors compare the performance of the \ac{SNN} model consisting of different numbers of excitatory neurons and different learning rules.
 The standard deviation of the test accuracy is indicated by the error bars.
 The black line denotes power-law weight dependence \ac{STDP}, the red one denotes exponential weight dependence \ac{STDP}, 
-the green one indicates pre-and-post \ac{STDP}, wheras the blue line's learning rule is triplet \ac{STDP}.
+the green one indicates pre-and-post \ac{STDP}, wheras the blue line's learning rule is \ac{TSTDP}.
 The differences between these learning rules are explained in \cite{SNN}.
 The visualization suggests that highest number of excitatory neurons (i.e. 6400) produces the best results for all learning rules.
 The authors also study propose possible reasons for the distribution of misclassified digits proposed in \autoref{img:error_analysis}.

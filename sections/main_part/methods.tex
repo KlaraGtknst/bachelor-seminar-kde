@@ -173,12 +173,14 @@ To ensure that a approximately constant number of neurons' receptive fields is s
 homoeostasis guarantees similiar firing rates among the neurons.
 The learning procedure is similar to k-means-like learning algorithms \cite{SNN}.
 Hence, increasing the number of neurons may result in at most 95-97 \% accuracy.
+
+
 \subsubsection{Input encoding}
 \acp{SNN} transmit information through spikes and thus, analog values have to be encoded into spikes \cite{DIET_SNN}.
 There are different types of encodings based on certain beliefs, 
 for instance those outlined in \autoref{subsubsec:communication}.
 There is a method to encode analog values into spikes \cite{SNN}:
-$60,000$ training examples, $10,000$ test examples of $28x28$ pixel images of the digits 0 to 9 compose the MNIST dataset used in \cite{SNN}.
+$60,000$ training examples and $10,000$ test examples of $28x28$ pixel images of the digits 0 to 9 compose the MNIST dataset used in \cite{SNN}.
 Inputs are Poison spike trains, which are presented for 350ms.
 The intensity of a pixel (0 to 255) is proportional to the firing rates (0 to $65.75 Hz$) of the neurons.
 If the network does not react to the input, the maximum input firing rate is augmented until it fires in the desired fashion. 
