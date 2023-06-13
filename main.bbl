@@ -21,6 +21,9 @@ Caporale, N., Dan, Y.: Spike timing-dependent plasticity: A hebbian learning rul
 \bibitem{SNN}
 Cook, M., Diehl, P.U.: Unsupervised learning of digit recognition using spike-timing-dependent plasticity. Frontiers in Computational Neuroscience  \textbf{9}, ~1--8 (2015)
 
+\bibitem{hardware_STDP}
+Indiveri, G., Chicca, E., Douglas, R.: A vlsi array of low-power spiking neurons and bistable synapses with spike-timing dependent plasticity. IEEE Transactions on Neural Networks  \textbf{17},  211--221 (2006)
+
 \bibitem{multi_scale_STDP}
 Kheradpisheh, S.R., Ganjtabesh, M., Masquelier, T.: Bio-inspired unsupervised learning of visual features leads to robust invariant object recognition. Neurocomputing  \textbf{205},  383--392 (2016)
 
