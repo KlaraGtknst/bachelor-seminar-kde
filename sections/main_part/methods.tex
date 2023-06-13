@@ -40,6 +40,7 @@ Detailed models on the other hand, may take into account state variables, such a
 accounting for more biophysically realistic models.
 Changes in the synaptic weight of an instance of the \ac{SDSP} model depend on the postsynaptic membrane potential $V_{mem}$ and 
 the calcium concentration $C(t)$ \cite{Synaptic_plasticity}.
+The calcium concentration $C(t)$  modification in term of decay and incrementation is outlined in \cite{simulation_STDP}.
 Whenever a presynaptic spike arrives either potentiation of amount $a$ occurs, if the membrane potential $V_{mem}$ is higher than a certain threshold $V_{mth}$ and the 
 calcium concentration $C(t)$ is within certain bounds, or depression of amount $b$ analogously displayed in \autoref{eq:sdsp_weight_update} from \cite{Synaptic_plasticity}.
 %
@@ -73,6 +74,20 @@ The \ac{SDSP} approach models synaptic weight $W$ decay as displayed in \autoref
 \end{equation}
 %
 Other detailed models, such as \ac{LCP} are outlined in \cite{Synaptic_plasticity}.
+The \ac{BCM} rule is based on the Hebbian principles, i.e. synaptic connection strengthen when two connected neurons have correlated firing activity, 
+and it is a rate-based synaptic plasticity rule introducing synaptic competetion \cite{simulation_STDP}.
+The weight change from \autoref{eq:BCM_weight_change} from \cite{simulation_STDP} consists of two terms:
+The first one computes the potentiation ($r_{post} \ge \theta$) or depression ($r_{post} < \theta$) of the synaptic weight $w$, 
+$r_{pre}, r_{post}$ being the firing rates of the pre- and postsynaptic neurons and $\theta$ being the modification threshold.
+$\delta$ is the learning rate and $\epsilon$ a weight decay parameter.
+The second term models the decay of the synaptic weight $w$.
+%
+\begin{equation}
+    \centering
+    \label{eq:BCM_weight_change}
+    \frac{dW(t)}{dt} = [r_{post}(r_{post} - \theta)r_{pre}]\delta - \epsilon \cdot w
+\end{equation}
+
 
 \subsubsection{Learning using \ac{STDP}}
 The synapses of the \ac{SNN} are trained using unsupervised \acfi{STDP}, which has been observed in a rage of species from insects to humans \cite{STDP_hebbian}. 
@@ -98,6 +113,9 @@ $\mu$ is the dependence of the update on the previous weight and
 $x_{tar}$ is the target value of the presynaptic trace at the moment of the postsynaptic spike.
 If $x_{tar}$ is high, i.e. many spikes arrived at the postsynaptic neuron, the weight will possibly not be increased 
 (especially if fewer spikes arrived at the presynaptic neuron indicated by  $x_{pre}$).
+
+If multiple presynaptic and postsynaptic spikes arrive closely in time, there are different methods to compute the total weight change \cite{simulation_STDP}:
+One could consider only nearest neighbour pairs of presynaptic and postsynaptic spikes, or sum up the weight changes for all pairs.
 
 There are also other \ac{STDP} learning rules \cite{SNN}.
 Some \ac{STDP} models rely on a teaching signal, which provides the right response \cite{STDP_like}.

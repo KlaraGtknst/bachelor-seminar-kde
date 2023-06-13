@@ -36,4 +36,7 @@ Lopes, P.H.C., Reid, I., Hobson, P.R.: The two-dimensional kolmogorov-smirnov te
 \bibitem{DIET_SNN}
 Rathi, N., Roy, K.: Diet-snn: A low-latency spiking neural network with direct input encoding and threshold optimization. IEEE Transactions on Neural Networks and Learning Systems pp.~1--9 (2021)
 
+\bibitem{simulation_STDP}
+amd X.~Lagorce, F.G., Stromatias, R., Pfeiffer, M., Plana, L.A., Furber, S.B., Benosman, R.B.: A framework for plasticity implementation on the spinnaker neural architecture. Frontiers in Neuroscience  \textbf{8},  1--20 (2015)
+
 \end{thebibliography}
