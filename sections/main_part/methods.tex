@@ -106,18 +106,6 @@ A teaching signal is sent to the correct pool of neurons representing the class 
 The goal of this approach is to make each neuron pool selective to one class of input.
 
 
-\subsubsection{Competitive Learning}
-\textcolor{red}{position schlecht: lateral inhibition und neuron nicht erklärt\\}
-The goal of the \ac{SNN}-model is to train its neurons to represent prototypical inputs or an average of similar inputs \cite{SNN}.
-To adchieve this goal, the weights of spiking neurons are adapted to become more similar to the input.
-Lateral inhibition prevents too many neurons from spiking and thus, prevents them from becoming to similar in the course of adapting to the input.
-This results in the receptive fields of the neurons explorating the input space.
-To ensure that a approximately constant number of neurons' receptive fields is similiar to an input, 
-homoeostasis guarantees similiar firing rates among the neurons.
-The learning procedure is similar to k-means-like learning algorithms \cite{SNN}.
-Hence, increasing the number of neurons may result in at most 95-97 \% accuracy.
-
-
 \subsubsection{Neuron model}
 \label{subsubsec:neuron_model}
 In reality, a neuron fires if the membrane's potential crosses the membrane's threshold $\nu_{thresh}$.
@@ -129,7 +117,7 @@ After firing the neuron's membrane potential is reset and within the next few mi
     \tau \frac{dV}{dt} = (E_{rest} - V) + g_e(E_{exc} - V) + g_i(E_{inh} - V)
 \end{equation}
 %
-\autoref{eq:membrane_vol_pot} describes the membrane voltage 
+\autoref{eq:membrane_vol_pot} from \cite{SNN} describes the membrane voltage 
 (i.e. the value compared to the threshold $V_{thres}$ which determines whether the neuron fires) change over time constant $\tau$.
 $E_{rest}$ is the resting membrane potential, $E_{exc}, E_{inh}$ are equilibrium potentials of excitatory and inhibitory synapses, 
 and $g_e, g_i$ the conductances of excitatory and inhibitory synapses (i.e. the influence of respective synapses on membrane voltage of neuron) \cite{SNN}. 
@@ -149,7 +137,7 @@ Otherwise, $g_e$/$g_i$ is decaying.
     \tau_{g_e} \frac{dg_e}{dt} = - g_e
 \end{equation}
 %
-The decay is computed using \autoref{eq:exc_conductance} from \cite{SNN}.
+The decay of $g_e$ ($g_i$ analogously) is computed using \autoref{eq:exc_conductance} from \cite{SNN}.
 The change over time constant $\tau$ is an \textcolor{red}{exponential decay}.
 
 
@@ -162,12 +150,7 @@ Due to the exponential decay, these neurons are called \ac{LIF} neurons.
 \subsubsection{lateral inhibition}
 Since every inhibitory neuron is connected to all excitatory neurons except the one it is already connected to, 
 whenever a spike is triggered in an excitatory neuron all inhibitory neurons receive a spike as well.
-Hence, neurons that did not fire are inhibited and thus, lateral inhibition and a soft winner-take-all mechanism are created.
-An 1:1 excitatory to inhibitory neuron ratio is chosen, rather than the biologically plausible 4:1 ratio, 
-to reduce computional complexity \cite{SNN}.
-
-
-
+Hence, neurons that did not fire are inhibited and thus, lateral inhibition and a soft winner-take-all mechanism are created \cite{SNN}.
 
 
 \subsubsection{conductance-based synapses}
@@ -181,6 +164,15 @@ Since the membrane potential is limited to $E_{exc}$ a neuron stops firing when 
 This technique countersteers the effect of inhomogeneity of the input and the lateral inhibition.
 
 
+\subsubsection{Competitive Learning}
+The goal of the \ac{SNN}-model is to train its neurons to represent prototypical inputs or an average of similar inputs \cite{SNN}.
+To adchieve this goal, the weights of spiking neurons are adapted to become more similar to the input.
+Lateral inhibition prevents too many neurons from spiking and thus, prevents them from becoming to similar in the course of adapting to the input.
+This results in the receptive fields of the neurons explorating the input space.
+To ensure that a approximately constant number of neurons' receptive fields is similiar to an input, 
+homoeostasis guarantees similiar firing rates among the neurons.
+The learning procedure is similar to k-means-like learning algorithms \cite{SNN}.
+Hence, increasing the number of neurons may result in at most 95-97 \% accuracy.
 \subsubsection{Input encoding}
 \acp{SNN} transmit information through spikes and thus, analog values have to be encoded into spikes \cite{DIET_SNN}.
 There are different types of encodings based on certain beliefs, 
