@@ -36,12 +36,12 @@ Other models, for instance the \ac{TSTDP}, not only take into account a single p
 but triplet combinations of spikes 
 (current pre- and post-, current post- and previous post-, current pre- and previous presynaptic one) \cite{Synaptic_plasticity}.
 
-Detailed models on the other hand, may take into account state variables, for instance membrane potential, 
+Detailed models on the other hand, may take into account state variables, such as membrane potential, 
 accounting for more biophysically realistic models.
 Changes in the synaptic weight of an instance of the \ac{SDSP} model depend on the postsynaptic membrane potential $V_{mem}$ and 
 the calcium concentration $C(t)$ \cite{Synaptic_plasticity}.
-Whenever a presynaptic spike arrives either potentiation of amount $a$ occurs, if the membrane potential $V_{mem}$ is higher than a certain threshold and the 
-calcium concentration $C(t)$ is within certain bounds, or depression of amount $b$ analogously displayed in \autoref{eq:sdsp_weight_update}.
+Whenever a presynaptic spike arrives either potentiation of amount $a$ occurs, if the membrane potential $V_{mem}$ is higher than a certain threshold $V_{mth}$ and the 
+calcium concentration $C(t)$ is within certain bounds, or depression of amount $b$ analogously displayed in \autoref{eq:sdsp_weight_update} from \cite{Synaptic_plasticity}.
 %
 \begin{equation}
     \centering
@@ -55,10 +55,10 @@ calcium concentration $C(t)$ is within certain bounds, or depression of amount $
     \right.
 \end{equation}
 %
-The \ac{SDSP} approach models synaptic weight $W$ decay as displayed in \autoref{eq:sdsp_weight_decay} from \cite{Synaptic_plasticity}.
 If the conditions from \autoref{eq:sdsp_weight_update} are no saisfied or no spike arrives, 
 the synaptic weight drifts towards either high or low synaptic weight asymtotes dependent on the weights at a specific time $t$ 
 with respect to a threshold $\theta_W$ \cite{Synaptic_plasticity}.
+The \ac{SDSP} approach models synaptic weight $W$ decay as displayed in \autoref{eq:sdsp_weight_decay} from \cite{Synaptic_plasticity}.
 %
 \begin{equation}
     \centering
