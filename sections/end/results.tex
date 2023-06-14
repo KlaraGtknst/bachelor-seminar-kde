@@ -1,9 +1,20 @@
 \section{Results}
 \label{sec:result}
+
+% original STDP paper
+The originally discussed \ac{SNN} model has been tested using multiple different \ac{STDP} rules, as well as different training set sizes. 
+Hence, there is evidence for the model's robustness and good performance in a variaty of different situations, 
+due to the competition among the neurons resulting in dissimilar receptive fields \cite{SNN}.
+Moreover, the authors of \cite{SNN} argue that their model is more biologically plausible.
+
+However, there is a shortcoming in terms of biological fidelity of the \ac{SNN} model presented in \cite{SNN}:
+Since neuron which are not in their refactory period can integrate incoming excitatory potentials and thus, 
+increase their chance of firing possibly not all neurons have the same chance of firing after the refactory period.
+
 % STDP-like paper
-The model was evaluated on the MNIST dataset.
+The \cite{STDP_like} model was evaluated on the MNIST dataset.
 The dataset is a suitable Benchmark for the \ac{SNN} model, 
-since it provides different difficulty levels of categorization \cite{STDP_like}.
+since it provides different difficulty levels of categorization.
 However, the MNIST dataset less complex than biological vision \cite{STDP_like}, 
 since projections on the retina greatly vary due to object position, size, pose, illumination condition and background \cite{multi_scale_STDP}.
 
@@ -16,9 +27,9 @@ indicating that the correctly and misclassified \ac{RT} distributions are signif
 whereas as the distributions for stimuli from the training and test set were not.
 The Kolmogorov-Smirnov test \cite{Kolmogorov_Smirnov} is a non-parametric test for evaluating whether two samples came from the same distribution function.
 
-The authors of \cite{STDP_like} compare the performance of the \ac{SNN} model for different training set sizes $n_{train}$.
-They find that the network is able to generalize well if the training set size is sufficiently large.
-The optimum training set size $n_{train} = 1000$ produced not remarkably higher misclassifaction rates than bigger training set sizes.
+The performance of the \ac{SNN} model is compared for different training set sizes $n_{train}$ \cite{STDP_like}.
+The results suggest that the network is able to generalize well if the training set size is sufficiently large.
+The optimum training set size $n_{train} = 1000$ did not produce remarkably higher misclassifaction rates than bigger training set sizes.
 The most frequent misclassification was the digit nine as a zero.
 
 
@@ -29,7 +40,7 @@ The black line denotes power-law weight dependence \ac{STDP}, the red one denote
 the green one indicates pre-and-post \ac{STDP}, wheras the blue line's learning rule is \ac{TSTDP}.
 The differences between these learning rules are explained in \cite{SNN}.
 The visualization suggests that highest number of excitatory neurons (i.e. 6400) produces the best results for all learning rules.
-The authors also study propose possible reasons for the distribution of misclassified digits proposed in \autoref{img:error_analysis}.
+The paper offers possible reasons for the distribution of misclassified digits proposed in \autoref{img:error_analysis}.
 The most common misclassification was the digit four as a nine.
 
 \begin{figure}[http]
@@ -58,20 +69,11 @@ The most common misclassification was the digit four as a nine.
     \label{tab:different-training-types}
 \end{table}
 
-The authors of \cite{SNN} include a table visualizing performances of different \acp{SNN}.
-A summary of the types compared is given in \autoref{tab:different-training-types}.
-Rate-based learning methods adchieve the best results.
+\autoref{tab:different-training-types} is a summary of the table visualizing performances of different \acp{SNN} in \cite{SNN}.
+Rate-based learning methods achieve the best results.
 Supervised methods imply the usage of a teaching signal.
 The last learning rule from \autoref{tab:different-training-types} denotes the shape of the \ac{STDP} time window.
-The calcium variable \cite{STDP_hebbian} is occasionally used to model the influence of the $Ca^{2+}$ level on activation neurons observed in biology:
+The calcium variable from the second learning rule is occasionally used to model the influence of the $Ca^{2+}$ level on activation neurons observed in biology \cite{STDP_hebbian}:
 Presynaptic action potentials release neurotransmitters that bind to certain receptores and 
 when the postsynaptic activities provide sufficient constant membrane depolarization the $Ca^{2+}$ level rises \cite{Synaptic_plasticity}.
 A large $Ca^{2+}$ rise are associated with \ac{LTP}, whereas modest $Ca^{2+}$ rise may result in \ac{LTD} \cite{STDP_hebbian}.
-
-Since neuron which are not in their refactory period can integrate incoming excitatory potentials and thus, 
-increase their chance of firing possibly not all neurons have the same chance of firing after the refactory period \cite{SNN}.
-
-Since the authors of \cite{SNN} have tested multiple different \ac{STDP} rules, as well as different training set sizes, 
-they point out their model's robustness and good performance in a variaty of different situations, 
-due to the competetion among the neurons resulting in dissimilar receptive fields.
-Moreover, the authors of \cite{SNN} argue that their model is more biologically plausible.

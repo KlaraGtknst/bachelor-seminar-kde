@@ -1,7 +1,8 @@
 \subsection{Methods}
 \label{subsec:methods}
 
-Concepts used in \cite{SNN} include \textcolor{red}{\acfi{LIF} neurons}, \textcolor{red}{lateral inhibition}, \textcolor{red}{synaptic plasticity} and \textcolor{red}{conductance-based synapses}.
+Concepts used in \cite{SNN} include \acfi{LIF} neurons, lateral inhibition, synaptic plasticity and homoeostasis, which are outlined in this section.
+
 
 \subsubsection{Timing of spikes}
 The timing of spikes determines the type of synaptic changes \cite{LTP_D_bio}:
@@ -9,12 +10,12 @@ If multiple postsynaptic spikes occur close after presynaptic spikes a \acfi{LTP
 whereas repetive postsynaptic spike before the presynaptic ones lead to \acfi{LTD}.
 
 
-\subsubsection{synaptic plasticity}
+\subsubsection{Synaptic plasticity}
 Synapses play a crucial role in \ac{SNN} learning tasks such as recognition and computation \cite{Synaptic_plasticity}.
 Synaptic plasticity rules is the term used for the different mathematical formulaes realised in activity-dependent modification of synaptic weights.
 There is a great variety of synaptic plasticity rules, raging from abstract models to detailed models \cite{Synaptic_plasticity}.
 
-Instances of abstract models include those based on the timing of spikes, such as Pair-based \ac{STDP} models.
+Instances of abstract models include those based on the timing of spikes, such as pair-based \ac{STDP} models.
 \autoref{eq:pair_based_weight_update} from \cite{Synaptic_plasticity} shows the weight update of a pair-based \ac{STDP} model.
 $\Delta t = t_{post} - t{pre}$ is the time difference between the presynaptic spike $t_{pre}$ and the postsynaptic spike $t_{post}$.
 If a postsynaptic spike arrives with time window $\tau_+$ before a presynaptic one, potentiation occurs, i.e. the synaptic weight is increased. 
@@ -32,7 +33,7 @@ The amount of weight change depends on $\Delta t $ and the amplitude parameters 
         \right.
 \end{equation}
 %
-Other models, for instance the \ac{TSTDP}, not only take into account a single pair of presynaptic and postsynaptic spikes, 
+Other models, for instance the \ac{TSTDP}, not only consider a single pair of presynaptic and postsynaptic spikes, 
 but triplet combinations of spikes 
 (current pre- and post-, current post- and previous post-, current pre- and previous presynaptic one) \cite{Synaptic_plasticity}.
 
@@ -40,7 +41,7 @@ Detailed models on the other hand, may take into account state variables, such a
 accounting for more biophysically realistic models.
 Changes in the synaptic weight of an instance of the \ac{SDSP} model depend on the postsynaptic membrane potential $V_{mem}$ and 
 the calcium concentration $C(t)$ \cite{Synaptic_plasticity}.
-The calcium concentration $C(t)$  modification in term of decay and incrementation is outlined in \cite{simulation_STDP}.
+The calcium concentration $C(t)$  modification with regard to the influence of decay and incrementation is outlined in \cite{simulation_STDP}.
 Whenever a presynaptic spike arrives either potentiation of amount $a$ occurs, if the membrane potential $V_{mem}$ is higher than a certain threshold $V_{mth}$ and the 
 calcium concentration $C(t)$ is within certain bounds, or depression of amount $b$ analogously displayed in \autoref{eq:sdsp_weight_update} from \cite{Synaptic_plasticity}.
 %
@@ -72,11 +73,11 @@ The \ac{SDSP} approach models synaptic weight $W$ decay as displayed in \autoref
     \end{array}
     \right.
 \end{equation}
-%
+
 Other detailed models, such as \ac{LCP} are outlined in \cite{Synaptic_plasticity}.
-The \ac{BCM} rule is based on the Hebbian principles, i.e. synaptic connection strengthen when two connected neurons have correlated firing activity, 
+The \ac{BCM} rule is based on the Hebbian principles, i.e. strengthening the synaptic connection when two connected neurons have correlated firing activity, 
 and it is a rate-based synaptic plasticity rule introducing synaptic competetion \cite{simulation_STDP}.
-The weight change from \autoref{eq:BCM_weight_change} from \cite{simulation_STDP} consists of two terms:
+The weight change over time $\frac{dW(t)}{dt}$ from \autoref{eq:BCM_weight_change} from \cite{simulation_STDP} consists of two terms:
 The first one computes the potentiation ($r_{post} \ge \theta$) or depression ($r_{post} < \theta$) of the synaptic weight $w$, 
 $r_{pre}, r_{post}$ being the firing rates of the pre- and postsynaptic neurons and $\theta$ being the modification threshold.
 $\delta$ is the learning rate and $\epsilon$ a weight decay parameter.
@@ -90,7 +91,7 @@ The second term models the decay of the synaptic weight $w$.
 
 
 \subsubsection{Learning using \ac{STDP}}
-The synapses of the \ac{SNN} are trained using unsupervised \acfi{STDP}, which has been observed in a rage of species from insects to humans \cite{STDP_hebbian}. 
+The synapses of the \ac{SNN} are trained using unsupervised \acfi{STDP}, which has been observed in a range of species from insects to humans \cite{STDP_hebbian}. 
 The weight of a connection between two neurons models a synapse.
 \ac{STDP} is a synaptic learning rule, which adapts weights of synapses according to their degree of causality \cite{STDP_like}, \cite{multi_scale_STDP},
  i.e. how likely the input causes postsynaptic neuron excitation.
@@ -105,13 +106,13 @@ If the postsynaptic neuron fires before the presynaptic one the spike has anothe
     \Delta w = \eta (x_{pre} - x_{tar})(w_{max}-w)^\mu
 \end{equation}
 %
-\autoref{eq:weight_update} from \cite{SNN} calculates the weight change after a \textcolor{red}{postsynaptic spike arrives 
-(i.e. the synapses' importance is changed according to its influence on the postsynaptic neuron)}.
+\autoref{eq:weight_update} from \cite{SNN} calculates the weight change after a postsynaptic spike arrives 
+(i.e. the synapses' importance is changed according to its influence on the postsynaptic neuron).
 $\eta$ is the learning rate, presynaptic trace $x_{pre}$ tracks the number of recent presynaptic spikes 
 (decaying if no spike arrives, increased by one otherwise), 
 $\mu$ is the dependence of the update on the previous weight and 
 $x_{tar}$ is the target value of the presynaptic trace at the moment of the postsynaptic spike.
-If $x_{tar}$ is high, i.e. many spikes arrived at the postsynaptic neuron, the weight will possibly not be increased 
+If $x_{tar}$ is high, i.e. many spikes arrived at the postsynaptic neuron, the weight will probably not be increased 
 (especially if fewer spikes arrived at the presynaptic neuron indicated by  $x_{pre}$).
 
 If multiple presynaptic and postsynaptic spikes arrive closely in time, there are different methods to compute the total weight change \cite{simulation_STDP}:
@@ -130,7 +131,7 @@ Hence, \ac{STDP} allegedly extracts informative and diagnostic features.
 \subsubsection{Neuron model}
 \label{subsubsec:neuron_model}
 In reality, a neuron fires if the membrane's potential crosses the membrane's threshold $\nu_{thresh}$.
-After firing the neuron's membrane potential is reset and within the next few milliseconds cannot spike again \cite{SNN}.
+After firing the neuron's membrane potential is reset and within the next few milliseconds the neuron cannot spike again \cite{SNN}.
 %
 \begin{equation}
     \centering
@@ -159,7 +160,7 @@ Otherwise, $g_e$/$g_i$ is decaying.
 \end{equation}
 %
 The decay of $g_e$ ($g_i$ analogously) is computed using \autoref{eq:exc_conductance} from \cite{SNN}.
-The change over time constant $\tau$ is an \textcolor{red}{exponential decay}.
+The change over time constant $\tau$ is an exponential decay.
 
 
 \subsubsection{\ac{LIF} neurons}
@@ -168,29 +169,26 @@ As depicted in \autoref{eq:membrane_vol_pot} from \autoref{subsubsec:neuron_mode
 Due to the exponential decay, these neurons are called \ac{LIF} neurons.
 
 
-\subsubsection{lateral inhibition}
+\subsubsection{Lateral inhibition}
 Since every inhibitory neuron is connected to all excitatory neurons except the one it is already connected to, 
 whenever a spike is triggered in an excitatory neuron all inhibitory neurons receive a spike as well.
 Hence, neurons that did not fire are inhibited and thus, lateral inhibition and a soft winner-take-all mechanism are created \cite{SNN}.
 
 
-\subsubsection{conductance-based synapses}
-
-
 \subsubsection{Homoeostasis}
 In order to ensure the neurons have a similar firing rate, the \eN{}'s membrane threshold is calculated by $\nu_{thresh} + \theta$, 
 where $\theta$ is increased every time the neuron fires and exponentially decaying otherwise.
-Since the membrane potential is limited to $E_{exc}$ a neuron stops firing when its membrane threshold is higher than the membrane potential.
+Since the membrane potential is limited to $E_{exc}$ a neuron stops firing when its membrane threshold is higher than the maximum membrane potential.
 
-This technique countersteers the effect of inhomogeneity of the input and the lateral inhibition.
+This technique countersteers the effect of inhomogeneity of the input and lateral inhibition.
 
 
 \subsubsection{Competitive Learning}
 The goal of the \ac{SNN}-model is to train its neurons to represent prototypical inputs or an average of similar inputs \cite{SNN}.
-To adchieve this goal, the weights of spiking neurons are adapted to become more similar to the input.
-Lateral inhibition prevents too many neurons from spiking and thus, prevents them from becoming to similar in the course of adapting to the input.
+To achieve this goal, the weights of spiking neurons are adapted to become more similar to the input.
+Lateral inhibition prevents too many neurons from spiking and thus, prevents them from becoming too similar in the course of adapting to the input.
 This results in the receptive fields of the neurons explorating the input space.
-To ensure that a approximately constant number of neurons' receptive fields is similiar to an input, 
+To ensure that an approximately constant number of neurons' receptive fields is similiar to an input, 
 homoeostasis guarantees similiar firing rates among the neurons.
 The learning procedure is similar to k-means-like learning algorithms \cite{SNN}.
 Hence, increasing the number of neurons may result in at most 95-97 \% accuracy.
@@ -200,8 +198,9 @@ Hence, increasing the number of neurons may result in at most 95-97 \% accuracy.
 \acp{SNN} transmit information through spikes and thus, analog values have to be encoded into spikes \cite{DIET_SNN}.
 There are different types of encodings based on certain beliefs, 
 for instance those outlined in \autoref{subsubsec:communication}.
-There is a method to encode analog values into spikes \cite{SNN}:
+
 $60,000$ training examples and $10,000$ test examples of $28x28$ pixel images of the digits 0 to 9 compose the MNIST dataset used in \cite{SNN}.
+There is a method to encode analog values into spikes:
 Inputs are Poison spike trains, which are presented for 350ms.
 The intensity of a pixel (0 to 255) is proportional to the firing rates (0 to $65.75 Hz$) of the neurons.
 If the network does not react to the input, the maximum input firing rate is augmented until it fires in the desired fashion. 

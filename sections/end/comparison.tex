@@ -29,14 +29,14 @@ Therefore, the ability to generalize on new datasets depends on the inputs' simi
     \label{fig:training_pipeline_DIET_SNN}
 \end{wrapfigure}
 
-The \ac{DIET}-\ac{SNN} model from \cite{DIET_SNN} is an entriely different approach to those discussed before.
+The \ac{DIET}-\ac{SNN} model from \cite{DIET_SNN} is an entirely different approach to those discussed before.
 This alternative approach uses supervised learning.
 As depicted in \autoref{fig:training_pipeline_DIET_SNN}, an \ac{ANN} is trained and thereafter converted into a \ac{SNN}.
 The authors of \cite{DIET_SNN} outline the \ac{ANN}-\ac{SNN}-conversion in more detail.
 The initialized parameters speed up the subsequent training with spike-based backpropagation.
 The converted \ac{SNN} is trained using error-backpropagation.
 
-Instead of using a Poisson generator (rate-coding: converting analog values to spike-train), the image pixels are directly applied as input.
+Instead of using a Poisson generator (i.e. rate-coding: converting analog values to spike-train), the image pixels are directly applied as input.
 The \ac{DIET}-\ac{SNN} model's first layer is trained to encode the input as spikes.
 The pixel intensities of an image are directly applied to the first convolutional layer's \ac{LIF} neurons.
 The neurons accumulate the weighted pixel and generate ouput spikes.
@@ -81,15 +81,15 @@ The original image is scaled to different processing scales (100\%, 71\%, 50\%, 
 
 However, there are also similarities to the \cite{SNN} model:
 The $C_1$ to $C_2$ synaptic connections are trained using \ac{STDP}.
-The time difference of presynaptic and postsynaptic spikes is only used to determine the sign of the modification of the synaptic weight, but not relevant for the amount of weight change.
-Furthermore, as mentioned before, the \cite{multi_scale_STDP} model also uses inhibition.
-
-The model is trained and evaluated on the ETH-80 and 3D-Object datasets \cite{multi_scale_STDP}, which contain obejcts which large deviations.
+Yet, the time difference of presynaptic and postsynaptic spikes is only used to determine the sign of the modification of the synaptic weight, but not relevant for the amount of weight change.
+As mentioned before, both the \cite{multi_scale_STDP} and the \cite{SNN} model use inhibition.
+%
+The \cite{multi_scale_STDP} model is trained and evaluated on the ETH-80 and 3D-Object datasets \cite{multi_scale_STDP}, which contain objects with large deviations.
 The data is converted to grayscale values.
 A \ac{RDM} is used to determine whether the quality of the model is good enough to provide representation of objects which have a high inter-category dissimilarity and a low intra-category dissimilarity.
 The result of the \ac{RDM} in \autoref{fig:RDM_SNN} suggests that the model is able to distinguish between feature values of different categories.
 The authors include a \ac{RDM} of a non-\ac{SNN} model performing considerably worse.
-
+%
 \begin{figure}[htbp]
     \center
     \includegraphics[width=\textwidth]{pictures/inter_intra_category_dissimilarity.jpg}
@@ -98,6 +98,6 @@ The authors include a \ac{RDM} of a non-\ac{SNN} model performing considerably w
     Intra-class dissimilarity is low, inter-class dissimilarity is high.}
     \label{fig:RDM_SNN}
 \end{figure}
-
+%
 The multi-scale \ac{SNN} is well suited for object recognition tasks consisting of few classes and many view points \cite{multi_scale_STDP}.
 The authors admit that processing time for many classes would greatly increase.

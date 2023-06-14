@@ -1,19 +1,22 @@
 \section{Conclusion and Outlook}
 \label{sec:conclusion}
 
-The study of \acp{SNN}, especially with regard to efficient learning procedures poses a interesting insight in the possibilities of modeling
+The study of \acp{SNN}, especially with regard to efficient learning procedures poses an interesting insight in the possibilities of modeling
 systems on the human brain.
 Concerning the difficulties of training a model which works with input values and their temporal dependencies researchers have already made 
 impressive efforts.
 The work of \cite{SNN} proposes an unsupervised approach with formidable performace in a variety of situations.
 The authors of \cite{SNN} and \cite{Synaptic_plasticity} also emphasise the energy efficience of \acp{SNN} on neuromorphic hardware.
 
-Besides this example of an unsupervised approach there is a variety of supervised methods to train a \ac{SNN}, 
+Besides the unsupervised approach proposed by \cite{SNN} there is a variety of supervised methods to train a \ac{SNN}, 
 for instance \ac{ANN}-\ac{SNN} conversion from \cite{DIET_SNN}.
 Even though existing approaches perform well, the authors emphasise shortcomings and potential of further research.
-\textcolor{red}{Bsp. offene Fragen}
+For instance, it remains unclear whether a single model can explain \ac{STDP} at different synapses \cite{STDP_hebbian}.
+Furthermore, biological interplay of factors such as calcium signals in certain cell types remains to analysed to determine its role and thus, being able to model is properly \cite{STDP_hebbian}.
+Some models, incuding the one presented in \cite{object_detection_SNN}, have yet to determine the model's robustness to noisy input sensor signals.
+The authors of \cite{object_detection_SNN} also point out that \acp{SNN} may learn to represent input patterns more compact.
 
-Since synaptic plasticity dominates the computing costs of \acp{SNN} due to the fact that von Neumann architectures are not built for processing large number of small messages, i.e. spikes, 
+Since simulation of synaptic plasticity dominates the computing costs of \acp{SNN} due to the fact that von Neumann architectures are not built for processing large number of small messages, i.e. spikes, 
 other strategies to improve run-time efficiency rely on among others neuromorphic hardware \cite{simulation_STDP}.
 This paper neglects the topic neuromorphic hardware.
 Other work, such as \cite{Synaptic_plasticity}, 
