@@ -131,7 +131,8 @@ Hence, \ac{STDP} allegedly extracts informative and diagnostic features.
 \subsubsection{Neuron model}
 \label{subsubsec:neuron_model}
 In reality, a neuron fires if the membrane's potential crosses the membrane's threshold $\nu_{thresh}$.
-After firing the neuron's membrane potential is reset and within the next few milliseconds the neuron cannot spike again \cite{SNN}.
+After firing the neuron's membrane potential is reset and within the next few milliseconds, i.e. the refactory period $t_{ref}$ \cite{RBM_SNN}, 
+the neuron cannot spike again \cite{SNN}.
 %
 \begin{equation}
     \centering
@@ -164,9 +165,11 @@ The change over time constant $\tau$ is an exponential decay.
 
 
 \subsubsection{\ac{LIF} neurons}
+The \ac{LIF} neuron is a simple, yet biological plausible model of a spiking neuron \cite{RBM_SNN}.
 As depicted in \autoref{eq:membrane_vol_pot} from \autoref{subsubsec:neuron_model}, the membrane potential/ voltage $V$'s current leaks out of the neuron 
 (i.e. decays without incoming spikes over time).
 Due to the exponential decay, these neurons are called \ac{LIF} neurons.
+%\acp{LIF} neuron states are only updated, i.e. fire or not, when a spike arrives \cite{RBM_SNN} (in event-based networks).
 
 
 \subsubsection{Lateral inhibition}
@@ -199,7 +202,8 @@ Hence, increasing the number of neurons may result in at most 95-97 \% accuracy.
 There are different types of encodings based on certain beliefs, 
 for instance those outlined in \autoref{subsubsec:communication}.
 
-$60,000$ training examples and $10,000$ test examples of $28x28$ pixel images of the digits 0 to 9 compose the MNIST dataset used in \cite{SNN} and \cite{ANN_SNN_conversion}.
+$60,000$ training examples and $10,000$ test examples of $28x28$ pixel images of the digits 0 to 9 compose the MNIST dataset used in 
+\cite{SNN}, \cite{ANN_SNN_conversion} and \cite{RBM_SNN}.
 There is a method to encode analog values into spikes:
 Inputs are Poison spike trains, which are presented for 350ms.
 The intensity of a pixel (0 to 255) is proportional to the firing rates (0 to $65.75 Hz$) of the neurons.
