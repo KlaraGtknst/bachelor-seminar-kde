@@ -62,27 +62,28 @@ The neurons of the output layer accumulate their inputs without any leakage.
 The output is not a spike, but a softmax function of the membrane potential.
 
 % multi_scale_STDP paper
-The model from \cite{multi_scale_STDP} uses a different architecture than \cite{SNN}.
+The model presented both in \cite{multi_scale_STDP} and in \cite{STDP_vis_feat} uses a different architecture than \cite{SNN}.
 It is designed to execute object recognition tasks in a biologically plausible manner.
 
 The first difference is the usage of a five layer hierarchical network structure, consisting of alternating so-called simple cells $S_1, S_2$ and complex cells $C_1, C_2$.
-The simple cells employ intensity-to-latency conversion, i.e. the stronger a cell is stimulated the earlier it will fire.
-In a group of four simple cells, the cell with the earliest firing time inhibits the other cells and thus, creating winner-take-all inhibition.
+The simple cells employ intensity-to-latency conversion, i.e. the stronger a cell is stimulated the earlier it will fire \cite{STDP_vis_feat}.
+In a group of four simple cells, the cell with the earliest firing time inhibits the other cells and thus, creating winner-take-all inhibition \cite{multi_scale_STDP}.
 The spike omitted by the winner cell is then propagated asynchronously.
 It serves as input for the complex cells.
-Since there are fewer complex cells than simple ones, the complex cells propagate only the maximum, i.e. the earliest spike, of the input spikes.
+Since there are fewer complex cells than simple ones, the complex cells propagate only the maximum, i.e. the earliest spike \cite{STDP_vis_feat}, of the input spikes.
 
 The second difference is the use of a classifier in the fifth layer to carry out the classification task instead of deciding for the class whose neurons have the highest average firing rate, 
 as suggested by the authors of \cite{SNN}.
 
-Moreover, the model has a multi-scale form.
+Moreover, the model has a multi-scale form \cite{multi_scale_STDP}.
 In other words: 
 The original image is scaled to different processing scales (100\%, 71\%, 50\%, 30\% and 25\%) and parallelly processed until all processing scales are combined in the forth layer.
 
 However, there are also similarities to the \cite{SNN} model:
 The $C_1$ to $C_2$ synaptic connections are trained using \ac{STDP}.
 Yet, the time difference of presynaptic and postsynaptic spikes is only used to determine the sign of the modification of the synaptic weight, but not relevant for the amount of weight change.
-As mentioned before, both the \cite{multi_scale_STDP} and the \cite{SNN} model use inhibition.
+As mentioned before, both the \cite{multi_scale_STDP} and the \cite{SNN} model use inhibition and thus, 
+create competition and consequently ensure all neurons learn a distinct pattern to cover the whole variability of inputs \cite{STDP_vis_feat}.
 %
 The \cite{multi_scale_STDP} model is trained and evaluated on the ETH-80 and 3D-Object datasets \cite{multi_scale_STDP}, which contain objects with large deviations.
 The data is converted to grayscale values.
@@ -99,6 +100,7 @@ The authors include a \ac{RDM} of a non-\ac{SNN} model performing considerably w
     \label{fig:RDM_SNN}
 \end{figure}
 %
+The model becomes selective to the prominently present patterns in the input and generates fast responses \cite{STDP_vis_feat}.
 The multi-scale \ac{SNN} is well suited for object recognition tasks consisting of few classes and many view points \cite{multi_scale_STDP}.
 The authors admit that processing time for many classes would greatly increase.
 
