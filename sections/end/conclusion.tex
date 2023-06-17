@@ -16,6 +16,11 @@ Furthermore, biological interplay of factors such as calcium signals in certain 
 Some models, incuding the one presented in \cite{object_detection_SNN}, have yet to determine the model's robustness to noisy input sensor signals.
 The authors of \cite{object_detection_SNN} also point out that \acp{SNN} may learn to represent input patterns more compact.
 
+\Acp{NN} are simulated using certain software \cite{simulation_Brian}.
+The python interface Brian omits the requirement of learning a new programming language to simulate \acp{SNN}.
+Vectorisation and the presence of several $C$ routines improve run-time efficiency \cite{simulation_Brian}.
+However, the authors admit it is not designed for very large scale simulations or large biophysical models.
+
 Since simulation of synaptic plasticity dominates the computing costs of \acp{SNN} due to the fact that von Neumann architectures are not built for processing large number of small messages, i.e. spikes, 
 other strategies to improve run-time efficiency rely on among others neuromorphic hardware \cite{simulation_STDP}.
 This paper neglects the topic neuromorphic hardware.
