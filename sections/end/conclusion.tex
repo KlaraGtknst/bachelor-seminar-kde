@@ -10,27 +10,29 @@ impressive efforts.
 The work of \cite{SNN} proposes an unsupervised approach with formidable performace in a variety of situations.
 The authors of \cite{SNN} and \cite{Synaptic_plasticity} also emphasise the energy efficience of \acp{SNN} on neuromorphic hardware.
 Another reason for the usage of \acp{SNN} is their configurability, 
-i.e. high spiking thresholds leading to high accuracy and low thresholds resulting in short latencies, \cite{ANN_SNN_conversion}.
+i.e. high spiking thresholds leading to high accuracy and low thresholds resulting in short latencies \cite{ANN_SNN_conversion}.
 
 Besides the unsupervised approach proposed by \cite{SNN} there is a variety of supervised methods to train a \ac{SNN}, 
 for instance \ac{ANN}-\ac{SNN} conversion from \cite{DIET_SNN}.
 Even though existing approaches perform well, the authors emphasise shortcomings and potential of further research.
 For instance, it remains unclear whether a single model can explain \ac{STDP} at different synapses \cite{STDP_hebbian}.
-Furthermore, biological interplay of factors such as calcium signals in certain cell types remains to analysed to determine its role and thus, being able to model is properly \cite{STDP_hebbian}.
+Furthermore, biological interplay of factors such as calcium signals in certain cell types remains an ongoing field of research 
+in order to improve existing models \cite{STDP_hebbian}.
 Some models, incuding the one presented in \cite{object_detection_SNN}, have yet to determine the model's robustness to noisy input sensor signals.
 The authors of \cite{object_detection_SNN} also point out that \acp{SNN} may learn to represent input patterns more compact.
 
-\Acp{NN} are simulated using certain software \cite{simulation_Brian}.
+\Acp{ANN} are simulated using certain software \cite{simulation_Brian}.
 The python interface Brian omits the requirement of learning a new programming language to simulate \acp{SNN}.
 Vectorisation and the presence of several $C$ routines improve run-time efficiency \cite{simulation_Brian}.
 However, the authors admit it is not designed for very large scale simulations or large biophysical models.
 
-Since simulation of synaptic plasticity dominates the computing costs of \acp{SNN} due to the fact that von Neumann architectures are not built for processing large number of small messages, i.e. spikes, 
-other strategies to improve run-time efficiency rely on among others neuromorphic hardware \cite{simulation_STDP}.
+Since simulation of synaptic plasticity dominates the computing costs of \acp{SNN} due to the fact that von Neumann architectures are not built 
+for processing large numbers of small messages, i.e. spikes, 
+other strategies to improve run-time efficiency rely on (among others) neuromorphic hardware \cite{simulation_STDP}.
 This paper neglects the topic neuromorphic hardware.
 Other work, such as \cite{Synaptic_plasticity}, 
-cover several different implementations and offer a discussion about challenges (e.g. memory elements) and adchievements 
-(e.g. successful synaptic rule implementations in hardware) in this area.
+cover several different implementations and offer a discussion about challenges (e.g. memory elements) and achievements 
+(e.g. successful implementation of synaptic rules in hardware) in this area.
 Yet another problem hindering the application of \acp{SNN} in real-world problems is accessibility of certain elements, such as individual synapses and neurons, 
 to read and (re)configure the network topology \cite{hardware_STDP}.
 The hardware seems to be in need of more improvements to be applicable to real-world problems.

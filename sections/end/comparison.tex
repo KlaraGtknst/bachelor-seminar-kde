@@ -14,7 +14,7 @@ The authors claim that the original method of using a majority vote of single th
 
 Not only the \cite{STDP_like} model but also the \cite{SNN} model use inhibition.
 
-The authors of \cite{STDP_like} point out that the classifier neuron will not recognize atypical digits (i.e. their stimulus).
+The authors of \cite{STDP_like} point out that the classifier neurons will not recognize atypical digits (i.e. their stimulus).
 Therefore, the ability to generalize on new datasets depends on the inputs' similiarity to the learned patterns.
 
 
@@ -33,8 +33,7 @@ The \ac{DIET}-\ac{SNN} model from \cite{DIET_SNN} is an entirely different appro
 This alternative approach uses supervised learning.
 As depicted in \autoref{fig:training_pipeline_DIET_SNN}, an \ac{ANN} is trained and thereafter converted into a \ac{SNN}.
 The \ac{ANN}-\ac{SNN}-conversion is outlined in \cite{DIET_SNN} and \cite{ANN_SNN_conversion}.
-The initialized parameters speed up the subsequent training with spike-based backpropagation.
-The converted \ac{SNN} is trained using error-backpropagation.
+The initialized parameters speed up the subsequent training of the converted \ac{SNN} with spike-based error-backpropagation.
 
 Instead of using a Poisson generator (i.e. rate-coding: converting analog values to spike-train), the image pixels are directly applied as input.
 The \ac{DIET}-\ac{SNN} model's first layer is trained to encode the input as spikes.
@@ -57,12 +56,11 @@ $v_i$ the threshold of neuron $i$.
 The first term calculates the leakage of the neuron,
 the second term the accumulated input of the presynaptic neurons and
 the third term enables a soft reset (reducing by threshold $v_i$ instead of reset to zero) of the membrane potential after a spike was generated.
-
 The neurons of the output layer accumulate their inputs without any leakage.
 The output is not a spike, but a softmax function of the membrane potential.
 
 % multi_scale_STDP paper
-The model presented both in \cite{multi_scale_STDP} and in \cite{STDP_vis_feat} uses a different architecture than \cite{SNN}.
+The model presented both in \cite{multi_scale_STDP} and \cite{STDP_vis_feat} uses a different architecture than \cite{SNN}.
 It is designed to execute object recognition tasks in a biologically plausible manner.
 
 The first difference is the usage of a five layer hierarchical network structure, consisting of alternating so-called simple cells $S_1, S_2$ and complex cells $C_1, C_2$.
@@ -80,8 +78,9 @@ In other words:
 The original image is scaled to different processing scales (100\%, 71\%, 50\%, 30\% and 25\%) and parallelly processed until all processing scales are combined in the forth layer.
 
 However, there are also similarities to the \cite{SNN} model:
-The $C_1$ to $C_2$ synaptic connections are trained using \ac{STDP}.
-Yet, the time difference of presynaptic and postsynaptic spikes is only used to determine the sign of the modification of the synaptic weight, but not relevant for the amount of weight change.
+The $C_1$ to $S_2$ synaptic connections are trained using \ac{STDP} \cite{multi_scale_STDP}, \cite{STDP_vis_feat}.
+Yet, the time difference between the presynaptic and postsynaptic spike is only used to determine the sign of the modification of the synaptic weight, 
+but not relevant for the amount of weight change \cite{STDP_vis_feat}.
 As mentioned before, both the \cite{multi_scale_STDP} and the \cite{SNN} model use inhibition and thus, 
 create competition and consequently ensure all neurons learn a distinct pattern to cover the whole variability of inputs \cite{STDP_vis_feat}.
 %
