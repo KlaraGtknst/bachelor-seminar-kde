@@ -1,16 +1,16 @@
 \begin{abstract}
 The human brain is particularly good at pattern recognition requiring little power. 
-Due to this fact, scientists are trying to improve their knowledge of the brain and to build systems to model it.
+Due to this fact, scientists are trying to improve their knowledge of the brain and build systems to model it.
 Since conventional \acfi{ANN} often use backpropagation and are thus, 
 biologically implausible or require a lot of power to do computations researchers have started focusing on implementing alternatives such as \acfi{SNN}.
 
 A \ac{SNN}'s neuron fires if its membrane potential exceeds a certain (adaptable) threshold. 
-The membrane's potential is calculated by the sum of incoming spikes with respect their timing.
+The membrane's potential is calculated by the sum of incoming spikes with respect to their timing.
 To improve this process' biological fidelity, the membrane potential decays exponentially.
 Synapses are modelled by the connections between neurons.
 The influence of a synapse on the postsynaptic neuron is represented by the weight of the connection.
 This weight is altered during training to disconnect neurons from those that have little influence on their spiking activity.
-The usage of \hMethod{} (i.e. adaptive membrane threshold and limiting the firing rate of neurons) prevents single neurons from firing all the time and enables the neurons to learn to different input patterns.
+The usage of \hMethod{} (i.e. adaptive membrane threshold and limiting the firing rate of neurons) prevents single neurons from firing all the time and enables the neurons to learn different input patterns.
 
 The approach of this paper is tested on the MNIST dataset and compared to other \ac{STDP} approaches.
 

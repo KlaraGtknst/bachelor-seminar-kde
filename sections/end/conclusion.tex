@@ -1,38 +1,38 @@
 \section{Conclusion and Outlook}
 \label{sec:conclusion}
 
-The study of \acp{SNN}, especially with regard to efficient learning procedures poses an interesting insight in the possibilities of modeling
+The study of \acp{SNN}, especially with regard to efficient learning procedures poses an interesting insight into the possibilities of modeling
 systems on the human brain.
 According to \cite{ANN_SNN_conversion}, in theory \acp{SNN} are as computationally powerful as \acp{ANN}, 
 even though it has proven to be difficult to find equivalent solutions in reality.
 Concerning the difficulties of training a model which works with input values and their temporal dependencies researchers have already made 
 impressive efforts.
-The work of \cite{SNN} proposes an unsupervised approach with formidable performace in a variety of situations.
-The authors of \cite{SNN} and \cite{Synaptic_plasticity} also emphasise the energy efficience of \acp{SNN} on neuromorphic hardware.
+The work of \cite{SNN} proposes an unsupervised approach with formidable performance in a variety of situations.
+The authors of \cite{SNN} and \cite{Synaptic_plasticity} also emphasize the energy efficiency of \acp{SNN} on neuromorphic hardware.
 Another reason for the usage of \acp{SNN} is their configurability, 
 i.e. high spiking thresholds leading to high accuracy and low thresholds resulting in short latencies \cite{ANN_SNN_conversion}.
 
 Besides the unsupervised approach proposed by \cite{SNN} there is a variety of supervised methods to train a \ac{SNN}, 
 for instance \ac{ANN}-\ac{SNN} conversion from \cite{DIET_SNN}.
-Even though existing approaches perform well, the authors emphasise shortcomings and potential of further research.
+Even though existing approaches perform well, the authors emphasize shortcomings and the potential for further research.
 For instance, it remains unclear whether a single model can explain \ac{STDP} at different synapses \cite{STDP_hebbian}.
-Furthermore, biological interplay of factors such as calcium signals in certain cell types remains an ongoing field of research 
+Furthermore, the biological interplay of factors such as calcium signals in certain cell types remains an ongoing field of research 
 in order to improve existing models \cite{STDP_hebbian}.
-Some models, incuding the one presented in \cite{object_detection_SNN}, have yet to determine the model's robustness to noisy input sensor signals.
-The authors of \cite{object_detection_SNN} also point out that \acp{SNN} may learn to represent input patterns more compact.
+Some models, including the one presented in \cite{object_detection_SNN}, have yet to determine the model's robustness to noisy input sensor signals.
+The authors of \cite{object_detection_SNN} also point out that \acp{SNN} may learn to represent input patterns more compactly.
 
 \Acp{ANN} are simulated using certain software \cite{simulation_Brian}.
-The python interface Brian omits the requirement of learning a new programming language to simulate \acp{SNN}.
-Vectorisation and the presence of several $C$ routines improve run-time efficiency \cite{simulation_Brian}.
-However, the authors admit it is not designed for very large scale simulations or large biophysical models.
+The Python interface Brian omits the requirement of learning a new programming language to simulate \acp{SNN}.
+Vectorization and the presence of several $C$ routines improve run-time efficiency \cite{simulation_Brian}.
+However, the authors admit it is not designed for very large-scale simulations or large biophysical models.
 
-Since simulation of synaptic plasticity dominates the computing costs of \acp{SNN} due to the fact that von Neumann architectures are not built 
+Since the simulation of synaptic plasticity dominates the computing costs of \acp{SNN} due to the fact that von Neumann architectures are not built 
 for processing large numbers of small messages, i.e. spikes, 
 other strategies to improve run-time efficiency rely on (among others) neuromorphic hardware \cite{simulation_STDP}.
-This paper neglects the topic neuromorphic hardware.
+This paper neglects the topic of neuromorphic hardware.
 Other work, such as \cite{Synaptic_plasticity}, 
-cover several different implementations and offer a discussion about challenges (e.g. memory elements) and achievements 
+covers several different implementations and offers a discussion about challenges (e.g. memory elements) and achievements 
 (e.g. successful implementation of synaptic rules in hardware) in this area.
-Yet another problem hindering the application of \acp{SNN} in real-world problems is accessibility of certain elements, such as individual synapses and neurons, 
+Yet another problem hindering the application of \acp{SNN} in real-world problems is the accessibility of certain elements, such as individual synapses and neurons, 
 to read and (re)configure the network topology \cite{hardware_STDP}.
-The hardware seems to be in need of more improvements to be applicable to real-world problems.
+The hardware seems to require more improvements to be applicable to real-world problems.

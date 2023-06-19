@@ -8,7 +8,7 @@ In this section, technical terms specific to the domain are defined and briefly 
 \subsubsection{Spike trains}
 are defined as multiple spikes.
 They are binary signals distributed over time.
-An '1' indicates a spike, whereas '0' indicates inactivity \cite{DIET_SNN}.
+A '1' indicates a spike, whereas '0' indicates inactivity \cite{DIET_SNN}.
 The number of timesteps determines the discretization error.
 A timestep is dependent on the hardware and its associated number of computations performable.
 
@@ -28,6 +28,6 @@ during the learning procedure and for dynamically adaptable systems.
 
 \subsubsection{Rate-based learning} is a training method for \ac{SNN} which uses backpropagation during training. 
 %but converts the \ac{ANN} to a \ac{SNN} (i.e. transfers trained weights) afterwards. 
-First an \ac{ANN} is trained with backpropagation with some restrictions as stated in \cite{DIET_SNN} and \cite{ANN_SNN_conversion}.
+First, an \ac{ANN} is trained with backpropagation with some restrictions as stated in \cite{DIET_SNN} and \cite{ANN_SNN_conversion}.
 Afterwards, a \ac{SNN} with \ac{IF} neurons and the weights of the \ac{ANN} is initialized.
 The usage of backpropagation is ostensibly biologically unrealistic \cite{SNN}, \cite{STDP_like}.

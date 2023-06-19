@@ -7,7 +7,7 @@ The input layer consists of $28 x 28$ neurons, i.e. one for each input pixel.
 All the neurons of the input layer are connected to all the neurons of the \pLayer{} (all-to-all).
 
 The \pLayer{} has \eN{}s and \iN{}s.
-An 1:1 excitatory to inhibitory neuron ratio is chosen, rather than the biologically plausible 4:1 ratio, 
+A 1:1 excitatory to inhibitory neuron ratio is chosen, rather than the biologically plausible 4:1 ratio, 
 to reduce computional complexity \cite{SNN}.
 While every \eN{} is connected to exactly one \iN{} (one-to-one), every \iN{} is connected to all \eN{}s except the one it is already connected to.
 The architecture is depicted in \autoref{fig:architecture_SNN}.
