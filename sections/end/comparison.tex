@@ -78,7 +78,7 @@ In other words:
 The original image is scaled to different processing scales (100\%, 71\%, 50\%, 30\% and 25\%) and parallelly processed until all processing scales are combined in the fourth layer.
 
 However, there are also similarities to the \cite{SNN} model:
-The $C_1$ to $S_2$ synaptic connections are trained using \ac{STDP} \cite{multi_scale_STDP}, \cite{STDP_vis_feat}.
+The $C_1$ to $S_2$ synaptic connections are trained using \ac{STDP} \cite{multi_scale_STDP,STDP_vis_feat}.
 Yet, the time difference between the presynaptic and postsynaptic spike is only used to determine the sign of the modification of the synaptic weight 
 but is not relevant for the amount of weight change \cite{STDP_vis_feat}.
 As mentioned before, both the \cite{multi_scale_STDP} and the \cite{SNN} model use inhibition and thus, 
