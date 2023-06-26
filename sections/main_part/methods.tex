@@ -6,7 +6,7 @@ Concepts used in \cite{SNN} include \acfi{LIF} neurons, lateral inhibition, syna
 
 \subsubsection{Timing of spikes}
 The timing of spikes determines the type of synaptic changes \cite{LTP_D_bio}:
-If multiple postsynaptic spikes occur close after presynaptic spikes a \acfi{LTP} is induced, 
+If multiple postsynaptic spikes occur close after presynaptic spikes, a \acfi{LTP} is induced, 
 whereas repetitive postsynaptic spikes before the presynaptic ones lead to \acfi{LTD}.
 
 
@@ -17,7 +17,7 @@ There is a great variety of synaptic plasticity rules, ranging from abstract mod
 
 Instances of abstract models include those based on the timing of spikes, such as pair-based \ac{STDP} models.
 \autoref{eq:pair_based_weight_update} from \cite{Synaptic_plasticity} shows the weight update of a pair-based \ac{STDP} model.
-$\Delta t = t_{post} - t{pre}$ is the time difference between the presynaptic spike $t_{pre}$ and the postsynaptic spike $t_{post}$.
+$\Delta t = t_{post} - t_{pre}$ is the time difference between the presynaptic spike $t_{pre}$ and the postsynaptic spike $t_{post}$.
 If a postsynaptic spike arrives within the time window $\tau_+$ before a presynaptic one, potentiation occurs, i.e. the synaptic weight is increased. 
 Analogously to induce depression the postsynaptic spike needs to precede the presynaptic one within time window $\tau_-$.
 The amount of weight change depends on $\Delta t $ and the amplitude parameters $A^+$ and $A^-$.
@@ -41,7 +41,7 @@ accounting for more biophysically realistic models.
 Changes in the synaptic weight of an instance of the \ac{SDSP} model depend on the postsynaptic membrane potential $V_{mem}$ and 
 the calcium concentration $C(t)$ \cite{Synaptic_plasticity}.
 The calcium concentration $C(t)$  modification with regard to the influence of decay and incrementation is outlined in \cite{simulation_STDP}.
-Whenever a presynaptic spike arrives either potentiation of amount $a$ takes place, 
+Whenever a presynaptic spike arrives, either potentiation of amount $a$ takes place, 
 if the membrane potential $V_{mem}$ is higher than a certain threshold $V_{mth}$ and the 
 calcium concentration $C(t)$ is within certain bounds, 
 or depression of amount $b$ analogously displayed in \autoref{eq:sdsp_weight_update} from \cite{Synaptic_plasticity} occurs.
@@ -58,8 +58,8 @@ or depression of amount $b$ analogously displayed in \autoref{eq:sdsp_weight_upd
     \right.
 \end{equation}
 %
-If the conditions from \autoref{eq:sdsp_weight_update} are no saisfied or no spike arrives, 
-the synaptic weight drifts towards either high or low synaptic weight asymtotes dependent on the weights at a specific time $t$ 
+If the conditions from \autoref{eq:sdsp_weight_update} are not satisfied or no spike arrives, 
+the synaptic weight drifts towards either high or low synaptic weight asymptotes dependent on the weights at a specific time $t$ 
 with respect to a threshold $\theta_W$ \cite{Synaptic_plasticity}.
 The \ac{SDSP} approach models synaptic weight $W$ decay as displayed in \autoref{eq:sdsp_weight_decay} from \cite{Synaptic_plasticity}.
 %
@@ -78,7 +78,7 @@ The \ac{SDSP} approach models synaptic weight $W$ decay as displayed in \autoref
 The \ac{BCM} rule is based on the Hebbian principles, i.e. strengthening the synaptic connection when two connected neurons have correlated firing activity, 
 and it is a rate-based synaptic plasticity rule introducing synaptic competition \cite{simulation_STDP}.
 The weight change over time $\frac{dW(t)}{dt}$ from \autoref{eq:BCM_weight_change} from \cite{simulation_STDP} consists of two terms:
-The first one computes the potentiation (if $r_{post} \ge \theta$) or depression (if $r_{post} < \theta$) of the synaptic weight $w$, 
+The first one computes the potentiation (if $r_{post} \ge \theta$) or depression (if $r_{post} < \theta$) of the synaptic weight $w$ with 
 $r_{pre}, r_{post}$ being the firing rates of the pre- and postsynaptic neurons and $\theta$ being the modification threshold.
 $\delta$ is the learning rate and $\epsilon$ a weight decay parameter.
 The second term models the decay of the synaptic weight $w$.
@@ -95,12 +95,12 @@ Other detailed models, such as \ac{LCP} are outlined in \cite{Synaptic_plasticit
 \subsubsection{Learning using \ac{STDP}}
 The synapses of the \ac{SNN} are trained using unsupervised \acfi{STDP}, which has been observed in a range of species from insects to humans \cite{STDP_hebbian}. 
 The weight of a connection between two neurons models a synapse.
-\ac{STDP} is a synaptic learning rule, which adapts weights of synapses according to their degree of causality \cite{STDP_like}, \cite{multi_scale_STDP},
+\ac{STDP} is a synaptic learning rule, which adapts weights of synapses according to their degree of causality \cite{STDP_like,multi_scale_STDP},
  i.e. how likely the input causes postsynaptic neuron excitation.
 \ac{STDP} increases synaptic weight if the postsynaptic neuron reacts immediately after the presynaptic neuron fires \cite{object_detection_SNN}.
 The goal of \ac{STDP} is to strengthen synapses of pre- and postsynaptic neuron pairs, 
 whose postsynaptic neuron reacts immediately after the presynaptic neuron fires \cite{object_detection_SNN}.
-If the postsynaptic neuron fires before the presynaptic one the spike has another origin and thus, the synapse is weakened to disconnect the neurons.
+If the postsynaptic neuron fires before the presynaptic one, the spike has another origin and thus, the synapse is weakened to disconnect the neurons.
 \ac{STDP} can be considered the transposition of the Hebbian learning rule in a temporal context \cite{STDP_vis_feat}.
 %
 \begin{equation}
@@ -134,7 +134,7 @@ Hence, \ac{STDP} allegedly extracts informative and diagnostic features.
 \subsubsection{Neuron model}
 \label{subsubsec:neuron_model}
 In reality, a neuron fires if the membrane's potential $V$ crosses the membrane's threshold $\nu_{thresh}$.
-After firing the neuron's membrane potential is reset and within the next few milliseconds, i.e. the refractory period $t_{ref}$ \cite{RBM_SNN}, 
+After firing, the neuron's membrane potential is reset and within the next few milliseconds, i.e. the refractory period $t_{ref}$ \cite{RBM_SNN}, 
 the neuron cannot spike again \cite{SNN}.
 %
 \begin{equation}

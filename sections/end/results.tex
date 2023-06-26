@@ -1,4 +1,4 @@
-\section{Results}
+\section{Performance}
 \label{sec:result}
 
 % original STDP paper
@@ -9,7 +9,7 @@ Moreover, the authors of \cite{SNN} argue that their model is more biologically 
 
 However, there is a shortcoming in terms of biological fidelity of the \ac{SNN} model presented in \cite{SNN}:
 Since neurons that are not in their refractory period can integrate incoming excitatory potentials and thus, 
-increase their chance of firing possibly not all neurons have the same chance of firing after the refractory period.
+increase their chance of firing, possibly not all neurons have the same chance of firing after the refractory period.
 
 % STDP-like paper
 The \cite{STDP_like} model was also evaluated on the MNIST dataset.
@@ -18,7 +18,7 @@ since it provides different difficulty levels of categorization.
 However, the MNIST dataset is less complex than biological vision \cite{STDP_like}, 
 since projections on the retina greatly vary due to object position, size, pose, illumination condition and background \cite{multi_scale_STDP}.
 
-In addition to the accuracy with regard to the classification of the MNIST dataset impulses \cite{STDP_like} presents \ac{RT} distributions.
+In addition to the accuracy with regard to the classification of the MNIST dataset impulses, \cite{STDP_like} presents \ac{RT} distributions.
 \ac{RT} is defined as the time between the presentation of a stimulus and the response (i.e. the first pool to reach the decision threshold).
 Usually, the \ac{RT} of misclassified digits is higher than the \ac{RT} of correctly classified digits.
 However, the network also makes fast errors.
@@ -75,6 +75,6 @@ Rate-based learning methods achieve the best results.
 Supervised methods imply the usage of a teaching signal.
 The calcium variable from the second learning rule is occasionally used to model the influence of the $Ca^{2+}$ level on activation neurons observed in biology \cite{STDP_hebbian}:
 Presynaptic action potentials release neurotransmitters that bind to certain receptors and 
-when the postsynaptic activities provide sufficient constant membrane depolarization the $Ca^{2+}$ level rises \cite{Synaptic_plasticity}.
+when the postsynaptic activities provide sufficient constant membrane depolarization, the $Ca^{2+}$ level rises \cite{Synaptic_plasticity}.
 A large $Ca^{2+}$ rise is associated with \ac{LTP}, whereas modest $Ca^{2+}$ rise may result in \ac{LTD} \cite{STDP_hebbian}.
 The last learning rule from \autoref{tab:different-training-types} denotes the shape of the \ac{STDP} time window.
