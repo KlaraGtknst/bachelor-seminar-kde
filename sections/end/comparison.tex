@@ -9,10 +9,12 @@ In the following, the \ac{SNN} model from \cite{SNN} is compared to other \ac{SN
 
 % STDP-like paper
 The \ac{SNN} model from \cite{STDP_like} determines its output by 
+\todo{the presented \ac{SNN} model determines ...}
 choosing the class of the first neuron pool to reach the decision threshold with its accumulated sensory evidence.
 The authors claim that the original method of using a majority vote of single threshold-based neuron activity is less biologically plausible.
 
 Not only the \cite{STDP_like} model but also the \cite{SNN} model use inhibition.
+\todo{zitierung als satzbaustein}
 
 The authors of \cite{STDP_like} point out that the classifier neurons will not recognize atypical digits (i.e. their stimulus).
 Therefore, the ability to generalize on new datasets depends on the inputs' similarity to the learned patterns.
@@ -29,8 +31,17 @@ Therefore, the ability to generalize on new datasets depends on the inputs' simi
     \label{fig:training_pipeline_DIET_SNN}
 \end{wrapfigure}
 
+\todo{ich weiß zwar nicht wie, aber die figure sollte auf der gleichen höhe wie der text beginnen}
 The \ac{DIET}-\ac{SNN} model from \cite{DIET_SNN} is an entirely different approach to those discussed before.
 This alternative approach uses supervised learning.
+\todo{warum kommt hier ein neues model hinzu? hatten Sie sorge, dass sie nicht
+  auf die benötigte seitenzahl kommen? dieser sprung zu einem weiteren model
+  ohne vorherige erwähnung bringt einen ganz schön in verwirrung}
+\todo{da die seitenzahl sowieso schon etwas über dem limit ist, wäre hier ein
+  guter ansatz um die arbeit etwas zu kürzen}
+\todo{am anfang 3/4 features/eigenschaften erwähnen/erklären, die verglichen
+  werden sollen und dann kurz ein weiteres model nehmen oder besser noch nur mit
+  klassische nn und vergleichen}
 As depicted in \autoref{fig:training_pipeline_DIET_SNN}, an \ac{ANN} is trained and thereafter converted into a \ac{SNN}.
 The \ac{ANN}-\ac{SNN}-conversion is outlined in \cite{DIET_SNN} and \cite{ANN_SNN_conversion}.
 The initialized parameters speed up the subsequent training of the converted \ac{SNN} with spike-based error-backpropagation.
@@ -41,6 +52,7 @@ The pixel intensities of an image are directly applied to the first convolutiona
 The neurons accumulate the weighted pixel and generate output spikes.
 This encoding is learned beforehand using gradient descent.
 
+\todo{irgendwie kriegt man das centering hier bestimmt hin}
 \begin{equation}
     \centering
     \label{eq:DIET-SNN-membrane-potential}
@@ -48,8 +60,9 @@ This encoding is learned beforehand using gradient descent.
 \end{equation}
 %
 The membrane potential $u_i^t$ of a postsynaptic neuron $i$ at timestep $t$ 
-is calculted using \autoref{eq:DIET-SNN-membrane-potential} from \cite{DIET_SNN}. 
+is calculated using \autoref{eq:DIET-SNN-membrane-potential} from \cite{DIET_SNN}. 
 $\lambda_i \in [0,1]$ is the leak factor of the membrane potential, 
+\todo{einen satz mit einem mathematischen symbol anfangen ist nicht so gut}
 $w_{ij}$ the weight of the synapse between neuron $i$ and $j$, 
 $o_j^t$ the output spike of neuron $j$ at timestep $t$ and 
 $v_i$ the threshold of neuron $i$.

@@ -11,9 +11,11 @@ They are binary signals distributed over time.
 A '1' indicates a spike, whereas '0' indicates inactivity \cite{DIET_SNN}.
 The number of timesteps determines the discretization error.
 A timestep is dependent on the hardware and its associated number of computations performable.
+\todo{oder die gewählte simulations genauigkeit, oder passt das nicht?}
 
 \subsubsection{Communication of neurons}
 \label{subsubsec:communication}
+\todo{rbModel und sbModel könnten beim ersten nennen kursiv hervorgehoben werden}
 There are two central beliefs with regard to the question of how the neurons communicate with each other \cite{spike_vs_rate}.
 The \rbModel{} believes that the firing rate captures most of the information, hence the timing of spikes is meaningless.
 The firing rate of a neuron is an abstract measurement of the average number of spikes per unit (e.g. duration, neuron, trial).
