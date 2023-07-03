@@ -1,13 +1,11 @@
 \section{Methods}
 \label{subsec:methods}
 
-Firstly, technical terms specific to the domain are defined and the network architecture is briefly discussed.
+Firstly, technical terms specific to the domain are defined and briefly discussed.
 Afterwards, the used methods are described in detail.
 Concepts used in the approach by Cook and Diehl \cite{SNN} include \acfi{LIF} neurons, lateral inhibition, synaptic plasticity and homoeostasis, which are outlined in this section.
 
-
 \input{sections/main_part/terms}
-\input{sections/main_part/architecture}
 
 \subsubsection{Timing of spikes}
 The timing of spikes determines the type of synaptic changes \cite{LTP_D_bio}:
@@ -46,9 +44,11 @@ Detailed models, on the other hand, may take into account state variables, such 
 accounting for more biophysically realistic models.
 Changes in the synaptic weight of an instance of the \ac{SDSP} model depend on the postsynaptic membrane potential $V_{mem}$ and 
 the calcium concentration $C(t)$ \cite{Synaptic_plasticity}.
-\todo{ein satz hier wäre gut, der erklärt, warum calcium hier eine rolle spielt
-  und warum die modelierung davon eine zeitabhängigkeit enthält}
-The calcium concentration $C(t)$  modification with regard to the influence of decay and incrementation is outlined in \cite{simulation_STDP}.
+The calcium variable is used to model the influence of the $Ca^{2+}$ level on activation neurons observed in biology \cite{STDP_hebbian}:
+Presynaptic action potentials release neurotransmitters that bind to certain receptors and 
+when the postsynaptic activities provide sufficient constant membrane depolarization, the $Ca^{2+}$ level rises \cite{Synaptic_plasticity}.
+A large $Ca^{2+}$ rise is associated with \ac{LTP}, whereas modest $Ca^{2+}$ rise may result in \ac{LTD} \cite{STDP_hebbian}.
+The calcium concentration $C(t)$  modification with regard to the temporal interplay of decay and incrementation is outlined in \cite{simulation_STDP}.
 Whenever a presynaptic spike arrives, either potentiation of amount $a$ takes place, 
 \todo{ist das a (und später b) eine Konstante?}
 if the membrane potential $V_{mem}$ is higher than a certain threshold $V_{mth}$ and the 
