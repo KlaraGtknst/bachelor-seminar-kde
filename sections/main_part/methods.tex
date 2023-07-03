@@ -84,22 +84,22 @@ The \ac{SDSP} approach models synaptic weight $W$ decay as displayed in \autoref
     \right.
 \end{equation}
 
-The \ac{BCM} rule is based on the Hebbian principles, i.e. strengthening the synaptic connection when two connected neurons have correlated firing activity, 
-\todo{wo kommt jetzt auf einmal eine neue regel her? da ist der übergang doch etwas plötzlich}
-and it is a rate-based synaptic plasticity rule introducing synaptic competition \cite{simulation_STDP}.
-The weight change over time $\frac{dW(t)}{dt}$ from \autoref{eq:BCM_weight_change} from \cite{simulation_STDP} consists of two terms:
-The first one computes the potentiation (if $r_{post} \ge \theta$) or depression (if $r_{post} < \theta$) of the synaptic weight $w$ with 
-$r_{pre}, r_{post}$ being the firing rates of the pre- and postsynaptic neurons and $\theta$ being the modification threshold.
-$\delta$ is the learning rate and $\epsilon$ a weight decay parameter.
-The second term models the decay of the synaptic weight $w$.
+%The \ac{BCM} rule is based on the Hebbian principles, i.e. strengthening the synaptic connection when two connected neurons have correlated firing activity, 
+%\todo{wo kommt jetzt auf einmal eine neue regel her? da ist der übergang doch etwas plötzlich}
+%and it is a rate-based synaptic plasticity rule introducing synaptic competition \cite{simulation_STDP}.
+%The weight change over time $\frac{dW(t)}{dt}$ from \autoref{eq:BCM_weight_change} from \cite{simulation_STDP} consists of two terms:
+%The first one computes the potentiation (if $r_{post} \ge \theta$) or depression (if $r_{post} < \theta$) of the synaptic weight $w$ with 
+%$r_{pre}, r_{post}$ being the firing rates of the pre- and postsynaptic neurons and $\theta$ being the modification threshold.
+%$\delta$ is the learning rate and $\epsilon$ a weight decay parameter.
+%The second term models the decay of the synaptic weight $w$.
 %
-\begin{equation}
-    \centering
-    \label{eq:BCM_weight_change}
-    \frac{dW(t)}{dt} = [r_{post}(r_{post} - \theta)r_{pre}]\delta - \epsilon \cdot w
-\end{equation}
+%\begin{equation}
+%    \centering
+%    \label{eq:BCM_weight_change}
+%    \frac{dW(t)}{dt} = [r_{post}(r_{post} - \theta)r_{pre}]\delta - \epsilon \cdot w
+%\end{equation}
 
-Other detailed models, such as \ac{LCP} are outlined in \cite{Synaptic_plasticity}.
+Other detailed models, such as \ac{LCP} are outlined in \cite{Synaptic_plasticity,simulation_STDP}.
 
 
 \subsubsection{Learning using \ac{STDP}}
