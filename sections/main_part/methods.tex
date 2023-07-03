@@ -1,11 +1,36 @@
-\subsection{Methods}
+\section{Methods}
 \label{subsec:methods}
 
-\todo{vielleicht macht es auch sinn, die subsection terms hierher zu verschieben und mit einzuarbeiten}
+Firstly, technical terms specific to the domain are defined and briefly discussed.
+Afterwards, the used methods are described in detail.
+Concepts used in the approach by Cook and Diehl \cite{SNN} include \acfi{LIF} neurons, lateral inhibition, synaptic plasticity and homoeostasis, which are outlined in this section.
 
-Concepts used in \cite{SNN} include \acfi{LIF} neurons, lateral inhibition, synaptic plasticity and homoeostasis, which are outlined in this section.
-\todo{concepts used in the approach by AUTHORS \cite{SNN} include ...}
+\input{sections/main_part/terms}
 
+\subsection{\ac{SNN}'s methods}
+
+\subsubsection{Input encoding}
+\acp{SNN} transmit information through spikes and thus, analogue values have to be encoded into spikes \cite{DIET_SNN}.
+There are different types of encodings based on certain beliefs, 
+for instance, those outlined in \autoref{subsubsec:communication}.
+
+$60,000$ training examples and $10,000$ test examples of $28\times 28$ pixel images of the digits 0 to 9 compose the MNIST dataset used in 
+\cite{SNN,ANN_SNN_conversion,RBM_SNN}.
+There is a method to encode analogue values into spikes:
+Inputs are Poisson spike trains, which are presented for 350ms.
+The intensity of a pixel (0 to 255) is proportional to the firing rates (0 to $65.75 Hz$) of the neurons.
+If the network does not react to the input, the maximum input firing rate is augmented until the neurons fire in the desired fashion. 
+
+
+\subsubsection{Poisson model of spike generation}
+The timing of successive action potentials in biology can be modelled by stochastic processes, 
+due to the observed irregularity of interval lengths between spikes \cite{poisson_spike_generation}.
+The hypothesis that the generation of an individual spike is independent of the generation of others 
+is necessary to use Poisson processes to model spike trains.
+A Poisson spike generator generates spikes according to a Poisson process.
+Different methods to generate spikes, which are either assigned to continuous time values or to discrete time bins,
+ are outlined in \cite{poisson_spike_generation}.
+ 
 
 \subsubsection{Timing of spikes}
 The timing of spikes determines the type of synaptic changes \cite{LTP_D_bio}:
@@ -14,7 +39,6 @@ whereas repetitive postsynaptic spikes before the presynaptic ones lead to \acfi
 
 
 \subsubsection{Synaptic plasticity}
-\todo{gibt es vielleicht ein bild/schema, dass die zusammenhänge von threshold, weight, membrane potential, etc darstellen könnte?}
 Synapses play a crucial role in \ac{SNN} learning tasks such as recognition and computation \cite{Synaptic_plasticity}.
 The term \textit{synaptic plasticity rules} is used for the different mathematical formulae realised in activity-dependent modification of synaptic weights.
 There is a great variety of synaptic plasticity rules, ranging from abstract models to detailed models \cite{Synaptic_plasticity}.
@@ -37,6 +61,19 @@ The amount of weight change depends on $\Delta t $ and the amplitude parameters 
         \right.
 \end{equation}
 %
+\autoref{fig:weight_change_time_dep} visualizes the concept of 
+the weight modification dependence on the temporal relationship of the presynaptic and the postsynaptic spike.
+%
+\begin{figure}[htbp]
+    \center
+    \includegraphics[width=0.4\textwidth]{pictures/weight_change_time_dep_altered.jpg}
+    \caption{Weight modification depending on the time difference $\Delta t$ between postsynaptic and presynaptic spike from \cite{Synaptic_plasticity}.
+    The weight change $\Delta w$ is positive if the presynaptic spike precedes the postsynaptic one, i.e. $\Delta t > 0$, analogously for $\Delta t < 0$.
+    The size of $\Delta w$ depends on the size of $\Delta t$.
+    The different process corners, i.e. colours, are discussed \cite{Synaptic_plasticity}.}
+    \label{fig:weight_change_time_dep}
+\end{figure}
+
 Other models, for instance, the \ac{TSTDP}, not only consider a single pair of presynaptic and postsynaptic spikes, 
 but triplet combinations of spikes \cite{Synaptic_plasticity,STDP_triplet}.
 
@@ -44,11 +81,13 @@ Detailed models, on the other hand, may take into account state variables, such 
 accounting for more biophysically realistic models.
 Changes in the synaptic weight of an instance of the \ac{SDSP} model depend on the postsynaptic membrane potential $V_{mem}$ and 
 the calcium concentration $C(t)$ \cite{Synaptic_plasticity}.
-\todo{ein satz hier wäre gut, der erklärt, warum calcium hier eine rolle spielt
-  und warum die modelierung davon eine zeitabhängigkeit enthält}
-The calcium concentration $C(t)$  modification with regard to the influence of decay and incrementation is outlined in \cite{simulation_STDP}.
+The calcium variable is used to model the influence of the $Ca^{2+}$ level on activation neurons observed in biology \cite{STDP_hebbian}:
+Presynaptic action potentials release neurotransmitters that bind to certain receptors and 
+when the postsynaptic activities provide sufficient constant membrane depolarization, the $Ca^{2+}$ level rises \cite{Synaptic_plasticity}.
+A large $Ca^{2+}$ rise is associated with \ac{LTP}, whereas modest $Ca^{2+}$ rise may result in \ac{LTD} \cite{STDP_hebbian}.
+The calcium concentration $C(t)$  modification with regard to the temporal interplay of decay and incrementation is outlined in \cite{simulation_STDP}.
 Whenever a presynaptic spike arrives, either potentiation of amount $a$ takes place, 
-\todo{ist das a (und später b) eine Konstante?}
+\todo{ist das a (und später b) eine Konstante? Wird in Literaturquelle nicht erwähnt.}
 if the membrane potential $V_{mem}$ is higher than a certain threshold $V_{mth}$ and the 
 calcium concentration $C(t)$ is within certain bounds, 
 or depression of amount $b$ analogously displayed in \autoref{eq:sdsp_weight_update} from \cite{Synaptic_plasticity} occurs.
@@ -59,8 +98,8 @@ or depression of amount $b$ analogously displayed in \autoref{eq:sdsp_weight_upd
     W = 
     \left\{
     \begin{array}{ll}
-        W + a, & \text{if } V_{mem} > V_{mth} \text{ and } \Theta^l_{up} < C(t) < \theta^h_{up}\\
-        W - b, & \text{if } V_{mem} \le V_{mth} \text{ and } \Theta^l_{dn} < C(t) < \theta^h_{dn}
+        W + a, & \text{if } V_{mem} > V_{mth} \text{ and } \theta^l_{up} < C(t) < \theta^h_{up}\\
+        W - b, & \text{if } V_{mem} \le V_{mth} \text{ and } \theta^l_{dn} < C(t) < \theta^h_{dn}
     \end{array}
     \right.
 \end{equation}
@@ -82,22 +121,22 @@ The \ac{SDSP} approach models synaptic weight $W$ decay as displayed in \autoref
     \right.
 \end{equation}
 
-The \ac{BCM} rule is based on the Hebbian principles, i.e. strengthening the synaptic connection when two connected neurons have correlated firing activity, 
-\todo{wo kommt jetzt auf einmal eine neue regel her? da ist der übergang doch etwas plötzlich}
-and it is a rate-based synaptic plasticity rule introducing synaptic competition \cite{simulation_STDP}.
-The weight change over time $\frac{dW(t)}{dt}$ from \autoref{eq:BCM_weight_change} from \cite{simulation_STDP} consists of two terms:
-The first one computes the potentiation (if $r_{post} \ge \theta$) or depression (if $r_{post} < \theta$) of the synaptic weight $w$ with 
-$r_{pre}, r_{post}$ being the firing rates of the pre- and postsynaptic neurons and $\theta$ being the modification threshold.
-$\delta$ is the learning rate and $\epsilon$ a weight decay parameter.
-The second term models the decay of the synaptic weight $w$.
+%The \ac{BCM} rule is based on the Hebbian principles, i.e. strengthening the synaptic connection when two connected neurons have correlated firing activity, 
+%\todo{wo kommt jetzt auf einmal eine neue regel her? da ist der übergang doch etwas plötzlich}
+%and it is a rate-based synaptic plasticity rule introducing synaptic competition \cite{simulation_STDP}.
+%The weight change over time $\frac{dW(t)}{dt}$ from \autoref{eq:BCM_weight_change} from \cite{simulation_STDP} consists of two terms:
+%The first one computes the potentiation (if $r_{post} \ge \theta$) or depression (if $r_{post} < \theta$) of the synaptic weight $w$ with 
+%$r_{pre}, r_{post}$ being the firing rates of the pre- and postsynaptic neurons and $\theta$ being the modification threshold.
+%$\delta$ is the learning rate and $\epsilon$ a weight decay parameter.
+%The second term models the decay of the synaptic weight $w$.
 %
-\begin{equation}
-    \centering
-    \label{eq:BCM_weight_change}
-    \frac{dW(t)}{dt} = [r_{post}(r_{post} - \theta)r_{pre}]\delta - \epsilon \cdot w
-\end{equation}
+%\begin{equation}
+%    \centering
+%    \label{eq:BCM_weight_change}
+%    \frac{dW(t)}{dt} = [r_{post}(r_{post} - \theta)r_{pre}]\delta - \epsilon \cdot w
+%\end{equation}
 
-Other detailed models, such as \ac{LCP} are outlined in \cite{Synaptic_plasticity}.
+Other detailed models, such as \ac{LCP} are outlined in \cite{Synaptic_plasticity,simulation_STDP}.
 
 
 \subsubsection{Learning using \ac{STDP}}
@@ -131,9 +170,7 @@ One could consider only nearest neighbour pairs of presynaptic and postsynaptic 
 
 There are also other \ac{STDP} learning rules \cite{SNN,STDP_random}.
 Some \ac{STDP} models rely on a teaching signal, which provides the right response \cite{STDP_like}.
-Teaching signals are generated by Poison spike generators.
-\todo{ist hier der mathematiker oder das gift gemeint?}
-\todo{was ist ein spike generator und was hat poisson damit zu tun?}
+Teaching signals are generated by Poisson spike generators.
 A teaching signal is sent to the correct pool of neurons representing the class (i.e. digit) after a stimulus was presented in the training phase.
 The goal of this approach is to make each neuron pool selective to one class of input.
 
@@ -146,6 +183,7 @@ Hence, \ac{STDP} allegedly extracts informative and diagnostic features.
 In reality, a neuron fires if the membrane's potential $V$ crosses the membrane's threshold $\nu_{thresh}$.
 After firing, the neuron's membrane potential is reset and within the next few milliseconds, i.e. the refractory period $t_{ref}$ \cite{RBM_SNN}, 
 the neuron cannot spike again \cite{SNN}.
+The model at hand displays similar behaviour as displayed in \autoref{fig:input_thres_output}.
 %
 \begin{equation}
     \centering
@@ -159,6 +197,16 @@ $E_{rest}$ is the resting membrane potential, $E_{exc}, E_{inh}$ are equilibrium
 and $g_e, g_i$ the conductances of excitatory and inhibitory synapses (i.e. the influence of respective synapses on membrane voltage of neuron) \cite{SNN}. 
 The voltage decays (first parenthesis) and is influenced by the excitatory synapses 
 adding to the voltage and the inhibitory synapses subtracting from the voltage.
+%
+\begin{figure}[htbp]
+    \center
+    \includegraphics[width=0.3\textwidth]{pictures/input_pot_thres_output_altered.jpg}
+    \caption{The \ac{LIF} neuron firing mechanism from \cite{input_thres_output}.
+    \ac{LIF} neurons integrate incoming spikes and decay otherwise.
+    If the membrane potential $V$ crosses the threshold $V_{thres}$, the neuron fires and thus, 
+    enters a refractory period at the resting membrane potential.}
+    \label{fig:input_thres_output}
+\end{figure}
 
 
 \subsubsection{Synapse model}
@@ -208,21 +256,6 @@ To ensure that an approximately constant number of neurons' receptive fields is 
 homoeostasis guarantees similar firing rates among the neurons.
 The learning procedure is similar to k-means-like learning algorithms \cite{SNN}.
 Hence, increasing the number of neurons may result in at most 95-97 \% accuracy.
-
-
-\subsubsection{Input encoding}
-\todo{vielleicht sollte das mit an den anfang der method section, da man damit die leser mit normalem nn background gut abholen kann}
-\acp{SNN} transmit information through spikes and thus, analogue values have to be encoded into spikes \cite{DIET_SNN}.
-There are different types of encodings based on certain beliefs, 
-for instance, those outlined in \autoref{subsubsec:communication}.
-
-$60,000$ training examples and $10,000$ test examples of $28\times 28$ pixel images of the digits 0 to 9 compose the MNIST dataset used in 
-\cite{SNN,ANN_SNN_conversion,RBM_SNN}.
-There is a method to encode analogue values into spikes:
-Inputs are Poison spike trains, which are presented for 350ms.
-\todo{da hier der gift mathematiker nochmal vorkommt, kann man die obige erklärung (die dann danach kommt) abwandeln um nichts doppelt zu haben}
-The intensity of a pixel (0 to 255) is proportional to the firing rates (0 to $65.75 Hz$) of the neurons.
-If the network does not react to the input, the maximum input firing rate is augmented until the neurons fire in the desired fashion. 
 
 
 \subsubsection{Training}
