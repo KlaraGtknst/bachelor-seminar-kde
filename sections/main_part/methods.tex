@@ -7,6 +7,21 @@ Concepts used in the approach by Cook and Diehl \cite{SNN} include \acfi{LIF} ne
 
 \input{sections/main_part/terms}
 
+\subsection{\ac{SNN}'s methods}
+
+\subsubsection{Input encoding}
+\acp{SNN} transmit information through spikes and thus, analogue values have to be encoded into spikes \cite{DIET_SNN}.
+There are different types of encodings based on certain beliefs, 
+for instance, those outlined in \autoref{subsubsec:communication}.
+
+$60,000$ training examples and $10,000$ test examples of $28\times 28$ pixel images of the digits 0 to 9 compose the MNIST dataset used in 
+\cite{SNN,ANN_SNN_conversion,RBM_SNN}.
+There is a method to encode analogue values into spikes:
+Inputs are Poisson spike trains, which are presented for 350ms.
+The intensity of a pixel (0 to 255) is proportional to the firing rates (0 to $65.75 Hz$) of the neurons.
+If the network does not react to the input, the maximum input firing rate is augmented until the neurons fire in the desired fashion. 
+
+
 \subsubsection{Poisson model of spike generation}
 The timing of successive action potentials in biology can be modelled by stochastic processes, 
 due to the observed irregularity of interval lengths between spikes \cite{poisson_spike_generation}.
@@ -15,6 +30,7 @@ is necessary to use Poisson processes to model spike trains.
 A Poisson spike generator generates spikes according to a Poisson process.
 Different methods to generate spikes, which are either assigned to continuous time values or to discrete time bins,
  are outlined in \cite{poisson_spike_generation}.
+ 
 
 \subsubsection{Timing of spikes}
 The timing of spikes determines the type of synaptic changes \cite{LTP_D_bio}:
@@ -240,21 +256,6 @@ To ensure that an approximately constant number of neurons' receptive fields is 
 homoeostasis guarantees similar firing rates among the neurons.
 The learning procedure is similar to k-means-like learning algorithms \cite{SNN}.
 Hence, increasing the number of neurons may result in at most 95-97 \% accuracy.
-
-
-\subsubsection{Input encoding}
-\todo{vielleicht sollte das mit an den anfang der method section, da man damit die leser mit normalem nn background gut abholen kann}
-\acp{SNN} transmit information through spikes and thus, analogue values have to be encoded into spikes \cite{DIET_SNN}.
-There are different types of encodings based on certain beliefs, 
-for instance, those outlined in \autoref{subsubsec:communication}.
-
-$60,000$ training examples and $10,000$ test examples of $28\times 28$ pixel images of the digits 0 to 9 compose the MNIST dataset used in 
-\cite{SNN,ANN_SNN_conversion,RBM_SNN}.
-There is a method to encode analogue values into spikes:
-Inputs are Poisson spike trains, which are presented for 350ms.
-\todo{da hier der gift mathematiker nochmal vorkommt, kann man die obige erklärung (die dann danach kommt) abwandeln um nichts doppelt zu haben}
-The intensity of a pixel (0 to 255) is proportional to the firing rates (0 to $65.75 Hz$) of the neurons.
-If the network does not react to the input, the maximum input firing rate is augmented until the neurons fire in the desired fashion. 
 
 
 \subsubsection{Training}
