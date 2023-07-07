@@ -3,16 +3,16 @@
 \subsection{Terms}
 \label{subsec:terms}
 
-\subsubsection{Spike trains}
+\paragraph{\textbf{Spike trains}}
 are defined as multiple spikes.
 They are binary signals distributed over time.
 A '1' indicates a spike, whereas '0' indicates inactivity \cite{DIET_SNN}.
 The number of timesteps determines the discretization error.
 A timestep is dependent on the hardware and its associated number of computations performable.
 In simulations, a timestep is the time necessary to perform a forward pass, i.e. the flow of information from the input layer to the output layer \cite{DIET_SNN}.
-
-\subsubsection{Communication of neurons}
-\label{subsubsec:communication}
+%
+\paragraph{\textbf{Communication of neurons}}
+%\label{subsubsec:communication}
 There are two central beliefs with regard to the question of how the neurons communicate with each other \cite{spike_vs_rate}.
 The \textit{\rbModel{}} believes that the firing rate captures most of the information, hence the timing of spikes is meaningless.
 The firing rate of a neuron is an abstract measurement of the average number of spikes per unit (e.g. duration, neuron, trial).
@@ -23,9 +23,8 @@ The \rbModel{} assumption is stronger than the one of the \sbModel{} \cite{spike
 
 The authors of \cite{SNN} argue that the spike-based model is preferable in terms of power consumption 
 during the learning procedure and for dynamically adaptable systems.
-
-
-\subsubsection{Rate-based learning} is a training method for \ac{SNN} which uses backpropagation during training. 
+%
+\paragraph{\textbf{Rate-based learning}} is a training method for \ac{SNN} which uses backpropagation during training. 
 %but converts the \ac{ANN} to a \ac{SNN} (i.e. transfers trained weights) afterwards. 
 First, an \ac{ANN} is trained with backpropagation with some restrictions as stated in \cite{DIET_SNN} and \cite{ANN_SNN_conversion}.
 Afterwards, a \ac{SNN} with \ac{IF} neurons and the weights of the \ac{ANN} is initialized.
