@@ -5,15 +5,14 @@
 The discussed \ac{SNN} model has been tested using multiple different \ac{STDP} rules, as well as different training set sizes. 
 Hence, there is evidence for the model's robustness and good performance in a variety of different situations, 
 due to the competition among the neurons resulting in dissimilar receptive fields \cite{SNN}.
-Moreover, the authors of \cite{SNN} argue that their model is more biologically plausible than other \ac{SNN} models.
+Moreover, \authorsSNN{} \cite{SNN} argue that their model is more biologically plausible than other \ac{SNN} models.
 
-However, there is a shortcoming in terms of biological fidelity of the \ac{SNN} model presented in \cite{SNN}:
+However, there is a shortcoming in terms of biological fidelity of the \ac{SNN} model by \authorsSNN{} \cite{SNN}:
 Since neurons that are not in their refractory period can integrate incoming excitatory potentials and thus, 
 increase their chance of firing, possibly not all neurons have the same chance of firing after the refractory period.
 
 % STDP-like paper
-The approach from \cite{STDP_like} was also evaluated on the MNIST dataset.
-\todo{zitierung verwirrt im satzbau, es war wohl the stdb\_like model und dann erst cite gemeint}
+The \authorsSTDPlike{}'s approach was also evaluated on the MNIST dataset \cite{STDP_like}.
 The dataset is a suitable Benchmark for the \ac{SNN} model 
 since it provides different difficulty levels of categorization.
 However, the MNIST dataset is less complex than biological vision \cite{STDP_like}, 
@@ -48,7 +47,7 @@ The most common misclassification was the digit four as a nine \cite{SNN}.
 \begin{figure}[http]
     \begin{minipage}[b]{.5\linewidth}
          \includegraphics[width=\linewidth]{pictures/num_exc_neurons_test_acc.jpg}
-         \caption{Test accuracy for different learning rules (colored lines) and different numbers of excitatory neurons from \cite{SNN}.}
+         \caption{Test accuracy for different learning rules (coloured lines) and different numbers of excitatory neurons from \cite{SNN}.}
          \label{img:test_acc}
     \end{minipage}
     \hspace{0.06\linewidth}% Abstand zwischen Bilder
