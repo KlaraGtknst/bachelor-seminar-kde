@@ -22,7 +22,7 @@ Inputs are Poisson spike trains, which are presented for 350ms.
 The intensity of a pixel (0 to 255) is proportional to the firing rates (0 to $65.75 Hz$) of the neurons.
 If the network does not react to the input, the maximum input firing rate is augmented until the neurons fire in the desired fashion. 
 
-
+\vspace{-3mm}
 \paragraph{\textbf{Poisson model of spike generation}}
 %The timing of successive action potentials in biology can be modelled by stochastic processes, 
 %due to the observed irregularity of interval lengths between spikes \cite{poisson_spike_generation}.
@@ -32,13 +32,13 @@ A Poisson spike generator generates spikes according to a Poisson process \cite{
 %Different methods to generate spikes, which are either assigned to continuous time values or to discrete time bins,
 % are outlined in \cite{poisson_spike_generation}.
  
-
+\vspace{-3mm}
 \paragraph{\textbf{Timing of spikes}}
 The timing of spikes determines the type of synaptic changes \cite{LTP_D_bio}:
 If multiple postsynaptic spikes occur close after presynaptic spikes, a \acfi{LTP} is induced, 
 whereas repetitive postsynaptic spikes before the presynaptic ones lead to \acfi{LTD}.
 
-
+\vspace{-3mm}
 \paragraph{\textbf{Synaptic plasticity}}
 Synapses play a crucial role in \ac{SNN} learning tasks such as recognition and computation \cite{Synaptic_plasticity}.
 The term \textit{synaptic plasticity rules} is used for the different mathematical formulae realised in activity-dependent modification of synaptic weights.
@@ -127,7 +127,7 @@ The \ac{SDSP} approach models synaptic weight $W$ decay as displayed in \autoref
 Other detailed models, such as \ac{LCP} are outlined by \authorsSynapticPlasticity{} \cite{Synaptic_plasticity} 
 and \authorssimulationSTDP{} \cite{simulation_STDP}.
 
-
+\vspace{-3mm}
 \paragraph{\textbf{Learning using \ac{STDP}}}
 The synapses of the \ac{SNN} are trained using unsupervised \acfi{STDP}, which has been observed in a range of species from insects to humans \cite{STDP_hebbian}. 
 The weight of a connection between two neurons models a synapse.
@@ -166,7 +166,7 @@ The goal of this approach is to make each neuron pool selective to one class of 
 \ac{STDP} focuses on the target object features, generally not learning the background, since they are usually too different to converge on them \cite{multi_scale_STDP,STDP_vis_feat}.
 Hence, \ac{STDP} allegedly extracts informative and diagnostic features.
 
-
+\vspace{-3mm}
 \paragraph{\textbf{Neuron model}}
 %\label{subsubsec:neuron_model}
 In reality, a neuron fires if the membrane's potential $V$ crosses the membrane's threshold $\nu_{thresh}$.
@@ -197,7 +197,7 @@ adding to the voltage and the inhibitory synapses subtracting from the voltage.
     \label{fig:input_thres_output}
 \end{figure}
 
-
+\vspace{-3mm}
 \paragraph{\textbf{Synapse model}}
 %\label{subsubsec:synapse_model}
 The synapse's conductance $g_e$/$g_i$ ($e$ excitatory, $i$ inhibitory) models the influence of a presynaptic neuron on another neuron.
@@ -213,7 +213,7 @@ Otherwise, $g_e$/$g_i$ is decaying.
 The decay of $g_e$ ($g_i$ analogously) is computed using \autoref{eq:exc_conductance} from \authorsSNN{}'s paper \cite{SNN}.
 The change over time constant $\tau$ is an exponential decay.
 
-
+\vspace{-3mm}
 \paragraph{\textbf{\ac{LIF} neurons}}
 The \ac{LIF} neuron is a simple, yet biologically plausible model of a spiking neuron \cite{RBM_SNN}.
 As depicted in \autoref{eq:membrane_vol_pot}, the membrane potential/ voltage $V$'s current leaks out of the neuron 
@@ -221,13 +221,13 @@ As depicted in \autoref{eq:membrane_vol_pot}, the membrane potential/ voltage $V
 Due to the exponential decay, these neurons are called \ac{LIF} neurons.
 %\acp{LIF} neuron states are only updated, i.e. fire or not, when a spike arrives \cite{RBM_SNN} (in event-based networks).
 
-
+\vspace{-3mm}
 \paragraph{\textbf{Lateral inhibition}}
 Since every inhibitory neuron is connected to all excitatory neurons except the one it is already connected to, 
 whenever a spike is triggered in an excitatory neuron all inhibitory neurons receive a spike as well.
 Hence, neurons that did not fire are inhibited and thus, lateral inhibition and a soft winner-take-all mechanism are created \cite{SNN}.
 
-
+\vspace{-3mm}
 \paragraph{\textbf{Homoeostasis}}
 In order to ensure the neurons have a similar firing rate, the \eN{}'s membrane threshold is calculated by $\nu_{thresh} + \theta$, 
 where $\theta$ is increased every time the neuron fires and decays exponentially otherwise.
@@ -235,7 +235,7 @@ Since the membrane potential is limited to $E_{exc}$ a neuron stops firing when 
 
 This technique countersteers the effect of inhomogeneity of the input and lateral inhibition.
 
-
+\vspace{-3mm}
 \paragraph{\textbf{Competitive Learning}}
 The goal of the \ac{SNN}-model is to train its neurons to represent prototypical inputs or an average of similar inputs \cite{SNN}.
 To achieve this goal, the weights of spiking neurons are adapted to become more similar to the input.
@@ -246,10 +246,11 @@ homoeostasis guarantees similar firing rates among the neurons.
 The learning procedure is similar to k-means-like learning algorithms \cite{SNN}.
 Hence, increasing the number of neurons may result in at most 95-97 \% accuracy.
 
-
+\vspace{-3mm}
 \paragraph{\textbf{Training}}
 In order to allow all variables to decay there is a 150ms phase without any input between images.
 
+\vspace{-3mm}
 \paragraph{\textbf{Testing}}
 First the learning rate $\eta$ is set to zero to appoint the neuron's threshold.
 After that, the training set is presented once more.

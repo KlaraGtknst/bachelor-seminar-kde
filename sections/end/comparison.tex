@@ -11,7 +11,6 @@ such as \acfi{STDP} with exponential time dependence.
 % original paper
 \authorsSNN{} present an unsupervised approach to train a \ac{SNN} model \cite{SNN}.
 However, there are other approaches to train \acp{SNN}, as well as opinions with regard to the biological plausibility of the methods used.
-In the following, the \ac{SNN} model from \authorsSNN{} \cite{SNN} is compared to other \ac{SNN} models.
 
 
 % STDP-like paper
@@ -25,11 +24,10 @@ The \authorsSTDPlike{} point out that the classifier neurons will not recognize 
 Therefore, the ability to generalize on new datasets depends on the inputs' similarity to the learned patterns.
 
 
-\textcolor{red}{TODO: compare with normalen NN}
-
 % multi_scale_STDP paper
-The model presented by both \authorsmultiScaleSTDP{} \cite{multi_scale_STDP} and \authorsSTDPvisFeat{} \cite{STDP_vis_feat} is different from the one from \authorsSNN{} \cite{SNN}.
-It is designed to execute object recognition tasks in a biologically plausible manner.
+The model presented by both \authorsmultiScaleSTDP{} \cite{multi_scale_STDP} and \authorsSTDPvisFeat{} \cite{STDP_vis_feat} 
+is designed to execute object recognition tasks in a biologically plausible manner.
+It differs from the \authorsSNN{}'s model \cite{SNN} in multiple ways:
 
 The first difference is the architecture \cite{multi_scale_STDP,STDP_vis_feat}.
 %usage of a five-layer hierarchical network structure, consisting of alternating so-called simple cells $S_1, S_2$ and complex cells $C_1, C_2$.
@@ -44,9 +42,8 @@ The second difference is the use of a classifier to carry out the classification
 instead of deciding on the class whose neurons have the highest average firing rate, 
 as suggested by \authorsSNN{} \cite{SNN}.
 
-Moreover, the model has a multi-scale form \cite{multi_scale_STDP}.
-In other words: 
-The original image is scaled to different processing scales (100\%, 71\%, 50\%, 30\% and 25\%) and parallelly processed until 
+Moreover, the model has a multi-scale form \cite{multi_scale_STDP}, i.e. the original image is scaled to different processing scales 
+(100\%, 71\%, 50\%, 30\% and 25\%) and parallelly processed until 
 all processing scales are combined in one of the layers.
 %the fourth layer.
 
@@ -55,25 +52,26 @@ However, there are also similarities to \authorsSNN{}'s model \cite{SNN}:
 The synaptic connections are trained using \ac{STDP} \cite{multi_scale_STDP,STDP_vis_feat}.
 Yet, the time difference between the presynaptic and postsynaptic spike is only used to determine the sign of the modification of the synaptic weight 
 but is not relevant for the amount of weight change \cite{STDP_vis_feat}.
-As mentioned before, both \authorsmultiScaleSTDP{}'s model \cite{multi_scale_STDP} and \authorsSNN{}'s model \cite{SNN} use inhibition and thus, 
+
+Both \authorsmultiScaleSTDP{}'s model \cite{multi_scale_STDP} and \authorsSNN{}'s model \cite{SNN} use inhibition and thus, 
 create competition and consequently ensure all neurons learn a distinct pattern to cover the whole variability of inputs \cite{STDP_vis_feat}.
 %
-\authorsmultiScaleSTDP{}'s model \cite{multi_scale_STDP} is trained and evaluated on the ETH-80 and 3D-Object datasets \cite{multi_scale_STDP}, which contain objects with large deviations.
-The data is converted to grayscale values.
-A \ac{RDM} is used to determine whether the quality of the model is good enough to provide a representation of objects which have a high inter-category dissimilarity and a low intra-category dissimilarity.
-The result of the \ac{RDM} in \autoref{fig:RDM_SNN} suggests that the model is able to distinguish between feature values of different categories.
-The authors include a \ac{RDM} of a non-\ac{SNN} model performing considerably worse.
+%\authorsmultiScaleSTDP{}'s model \cite{multi_scale_STDP} is trained and evaluated on the ETH-80 and 3D-Object datasets \cite{multi_scale_STDP}, which contain objects with large deviations.
+%The data is converted to grayscale values.
+%A \ac{RDM} is used to determine whether the quality of the model is good enough to provide a representation of objects which have a high inter-category dissimilarity and a low intra-category dissimilarity.
+%The result of the \ac{RDM} in \autoref{fig:RDM_SNN} suggests that the model is able to distinguish between feature values of different categories.
+%The authors include a \ac{RDM} of a non-\ac{SNN} model performing considerably worse.
 %
-\begin{figure}[htbp]
-    \center
-    \includegraphics[width=0.9\textwidth]{pictures/inter_intra_category_dissimilarity.jpg}
-    \caption{\acp{RDM} of object representations of different image stimuli for different views from \authorsmultiScaleSTDP{}'s paper \cite{multi_scale_STDP}.
-    A sample image for each category is placed next to the rows and columns.
-    Intra-class dissimilarity is low, and inter-class dissimilarity is high.}
-    \label{fig:RDM_SNN}
-\end{figure}
+%\begin{figure}[htbp]
+%    \center
+%    \includegraphics[width=0.7\textwidth]{pictures/inter_intra_category_dissimilarity.jpg}
+%    \caption{\acp{RDM} of object representations of different image stimuli for different views from \authorsmultiScaleSTDP{}'s paper \cite{multi_scale_STDP}.
+%    A sample image for each category is placed next to the rows and columns.
+%    Intra-class dissimilarity is low, and inter-class dissimilarity is high.}
+%    \label{fig:RDM_SNN}
+%\end{figure}
 %
-The model becomes selective to the prominently present patterns in the input and generates fast responses \cite{STDP_vis_feat}.
+%The model becomes selective to the prominently present patterns in the input and generates fast responses \cite{STDP_vis_feat}.
 The multi-scale \ac{SNN} is well suited for object recognition tasks consisting of few classes and many viewpoints \cite{multi_scale_STDP}.
 The authors admit that processing time for many classes would greatly increase.
 
