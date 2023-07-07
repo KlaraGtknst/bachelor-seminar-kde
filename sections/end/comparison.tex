@@ -12,7 +12,7 @@ The presented \ac{SNN} model determines its output by
 choosing the class of the first neuron pool to reach the decision threshold with its accumulated sensory evidence \cite{STDP_like}.
 The authors claim that the original method of using a majority vote of single threshold-based neuron activity is less biologically plausible.
 
-Not only the model of \authorsSTDPlike{} \cite{STDP_like} but also the model of \authorsSNN{} \cite{SNN} use inhibition.
+Not only \authorsSTDPlike{}'s model \cite{STDP_like} but also \authorsSNN{}'s model \cite{SNN} use inhibition.
 
 The \authorsSTDPlike{} point out that the classifier neurons will not recognize atypical digits (i.e. their stimulus) \cite{STDP_like}.
 Therefore, the ability to generalize on new datasets depends on the inputs' similarity to the learned patterns.
@@ -43,15 +43,15 @@ The original image is scaled to different processing scales (100\%, 71\%, 50\%, 
 all processing scales are combined in one of the layers.
 %the fourth layer.
 
-However, there are also similarities to the model of \authorsSNN{} \cite{SNN}:
+However, there are also similarities to \authorsSNN{}'s model \cite{SNN}:
 %The $C_1$ to $S_2$ synaptic connections are trained using \ac{STDP} \cite{multi_scale_STDP,STDP_vis_feat}.
 The synaptic connections are trained using \ac{STDP} \cite{multi_scale_STDP,STDP_vis_feat}.
 Yet, the time difference between the presynaptic and postsynaptic spike is only used to determine the sign of the modification of the synaptic weight 
 but is not relevant for the amount of weight change \cite{STDP_vis_feat}.
-As mentioned before, both the model from \authorsmultiScaleSTDP{} \cite{multi_scale_STDP} and the model from \authorsSNN{} \cite{SNN} use inhibition and thus, 
+As mentioned before, both \authorsmultiScaleSTDP{}'s model \cite{multi_scale_STDP} and \authorsSNN{}'s model \cite{SNN} use inhibition and thus, 
 create competition and consequently ensure all neurons learn a distinct pattern to cover the whole variability of inputs \cite{STDP_vis_feat}.
 %
-The model from \authorsmultiScaleSTDP{} \cite{multi_scale_STDP} is trained and evaluated on the ETH-80 and 3D-Object datasets \cite{multi_scale_STDP}, which contain objects with large deviations.
+\authorsmultiScaleSTDP{}'s model \cite{multi_scale_STDP} is trained and evaluated on the ETH-80 and 3D-Object datasets \cite{multi_scale_STDP}, which contain objects with large deviations.
 The data is converted to grayscale values.
 A \ac{RDM} is used to determine whether the quality of the model is good enough to provide a representation of objects which have a high inter-category dissimilarity and a low intra-category dissimilarity.
 The result of the \ac{RDM} in \autoref{fig:RDM_SNN} suggests that the model is able to distinguish between feature values of different categories.
@@ -60,7 +60,7 @@ The authors include a \ac{RDM} of a non-\ac{SNN} model performing considerably w
 \begin{figure}[htbp]
     \center
     \includegraphics[width=0.9\textwidth]{pictures/inter_intra_category_dissimilarity.jpg}
-    \caption{\acp{RDM} of object representations of different image stimuli for different views from \cite{multi_scale_STDP}.
+    \caption{\acp{RDM} of object representations of different image stimuli for different views from \authorsmultiScaleSTDP{}'s paper \cite{multi_scale_STDP}.
     A sample image for each category is placed next to the rows and columns.
     Intra-class dissimilarity is low, and inter-class dissimilarity is high.}
     \label{fig:RDM_SNN}

@@ -21,11 +21,11 @@ According to the \textit{\sbModel{}}, the firing rate is not sufficient to descr
 The spike timing defines spike trains and individual spikes.
 The \rbModel{} assumption is stronger than the one of the \sbModel{} \cite{spike_vs_rate}.
 
-The authors of \cite{SNN} argue that the spike-based model is preferable in terms of power consumption 
-during the learning procedure and for dynamically adaptable systems.
+\authorsSNN{} argue that the spike-based model is preferable in terms of power consumption 
+during the learning procedure and for dynamically adaptable systems \cite{SNN}.
 %
 \paragraph{\textbf{Rate-based learning}} is a training method for \ac{SNN} which uses backpropagation during training. 
 %but converts the \ac{ANN} to a \ac{SNN} (i.e. transfers trained weights) afterwards. 
-First, an \ac{ANN} is trained with backpropagation with some restrictions as stated in \cite{DIET_SNN} and \cite{ANN_SNN_conversion}.
+First, an \ac{ANN} is trained with backpropagation with some restrictions \cite{ANN_SNN_conversion,DIET_SNN}.
 Afterwards, a \ac{SNN} with \ac{IF} neurons and the weights of the \ac{ANN} is initialized.
-The usage of backpropagation is ostensibly biologically unrealistic \cite{SNN,STDP_like}.
+The usage of backpropagation is ostensibly biologically unrealistic \cite{STDP_like,SNN}.

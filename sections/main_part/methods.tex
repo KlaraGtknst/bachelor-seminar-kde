@@ -12,11 +12,11 @@ Concepts used in the approach by Cook and Diehl \cite{SNN} include \acfi{LIF} ne
 \paragraph{\textbf{Input encoding}}
 \acp{SNN} transmit information through spikes and thus, analogue values have to be encoded into spikes \cite{DIET_SNN}.
 There are different types of encodings based on certain beliefs, 
-for instance, those outlined below.
+for instance, those outlined in \autoref{subsec:terms}.
 %in \autoref{subsubsec:communication}.
 
-$60,000$ training examples and $10,000$ test examples of $28\times 28$ pixel images of the digits 0 to 9 compose the MNIST dataset used in 
-\cite{SNN,ANN_SNN_conversion,RBM_SNN}.
+$60,000$ training examples and $10,000$ test examples of $28\times 28$ pixel images of the digits 0 to 9 compose the MNIST dataset used in the work of 
+\authorsSNN{}, \authorsANNSNNconversion{} and \authorsRBMSNN{} \cite{SNN,ANN_SNN_conversion,RBM_SNN}.
 There is a method to encode analogue values into spikes:
 Inputs are Poisson spike trains, which are presented for 350ms.
 The intensity of a pixel (0 to 255) is proportional to the firing rates (0 to $65.75 Hz$) of the neurons.
@@ -24,13 +24,13 @@ If the network does not react to the input, the maximum input firing rate is aug
 
 
 \paragraph{\textbf{Poisson model of spike generation}}
-The timing of successive action potentials in biology can be modelled by stochastic processes, 
-due to the observed irregularity of interval lengths between spikes \cite{poisson_spike_generation}.
-The hypothesis that the generation of an individual spike is independent of the generation of others 
-is necessary to use Poisson processes to model spike trains.
-A Poisson spike generator generates spikes according to a Poisson process.
-Different methods to generate spikes, which are either assigned to continuous time values or to discrete time bins,
- are outlined in \cite{poisson_spike_generation}.
+%The timing of successive action potentials in biology can be modelled by stochastic processes, 
+%due to the observed irregularity of interval lengths between spikes \cite{poisson_spike_generation}.
+%The hypothesis that the generation of an individual spike is independent of the generation of others 
+%is necessary to use Poisson processes to model spike trains.
+A Poisson spike generator generates spikes according to a Poisson process \cite{poisson_spike_generation}.
+%Different methods to generate spikes, which are either assigned to continuous time values or to discrete time bins,
+% are outlined in \cite{poisson_spike_generation}.
  
 
 \paragraph{\textbf{Timing of spikes}}
@@ -45,7 +45,7 @@ The term \textit{synaptic plasticity rules} is used for the different mathematic
 There is a great variety of synaptic plasticity rules, ranging from abstract models to detailed models \cite{Synaptic_plasticity}.
 
 Instances of abstract models include those based on the timing of spikes, such as pair-based \ac{STDP} models.
-\autoref{eq:pair_based_weight_update} from \cite{Synaptic_plasticity} shows the weight update of a pair-based \ac{STDP} model.
+\autoref{eq:pair_based_weight_update} from \authorsSynapticPlasticity{}'s paper \cite{Synaptic_plasticity} shows the weight update of a pair-based \ac{STDP} model.
 $\Delta t = t_{post} - t_{pre}$ is the time difference between the presynaptic spike $t_{pre}$ and the postsynaptic spike $t_{post}$.
 If a postsynaptic spike arrives within the time window $\tau_+$ before a presynaptic one, potentiation occurs, i.e. the synaptic weight is increased. 
 Analogously to induce depression the postsynaptic spike needs to precede the presynaptic one within time window $\tau_-$.
@@ -68,8 +68,10 @@ the weight modification dependence on the temporal relationship of the presynapt
 \begin{figure}[htbp]
     \center
     \includegraphics[width=0.4\textwidth]{pictures/weight_change_time_dep_altered.png}
-    \caption{Weight modification depending on the time difference $\Delta t = t_j^f - t_i^f$ between postsynaptic and presynaptic spike from \cite{snn_weight_time}.
-    The weight change $\Delta w$ is positive if the presynaptic spike precedes the postsynaptic one, i.e. $\Delta t > 0$, analogously for $\Delta t < 0$.
+    \caption{Weight modification depending on the time difference $\Delta t = t_j^f - t_i^f$ 
+    between postsynaptic and presynaptic spike from \authorsSNNweightTime{}'s paper \cite{snn_weight_time}.
+    The weight change $\Delta w$ is positive if the presynaptic spike precedes the postsynaptic one, 
+    i.e. $\Delta t > 0$, analogously for $\Delta t < 0$.
     The size of $\Delta w$ depends on the size of $\Delta t$.}
     \label{fig:weight_change_time_dep}
 \end{figure}
@@ -85,11 +87,13 @@ The calcium variable is used to model the influence of the $Ca^{2+}$ level on ac
 Presynaptic action potentials release neurotransmitters that bind to certain receptors and 
 when the postsynaptic activities provide sufficient constant membrane depolarization, the $Ca^{2+}$ level rises \cite{Synaptic_plasticity}.
 A large $Ca^{2+}$ rise is associated with \ac{LTP}, whereas modest $Ca^{2+}$ rise may result in \ac{LTD} \cite{STDP_hebbian}.
-The calcium concentration $C(t)$  modification with regard to the temporal interplay of decay and incrementation is outlined in \cite{simulation_STDP}.
+The calcium concentration $C(t)$  modification with regard to the temporal interplay of decay and incrementation is outlined in the work 
+of \authorssimulationSTDP{} \cite{simulation_STDP}.
 Whenever a presynaptic spike arrives, either potentiation of amount $a$ takes place, 
 if the membrane potential $V_{mem}$ is higher than a certain threshold $V_{mth}$ and the 
 calcium concentration $C(t)$ is within certain bounds, 
-or depression of amount $b$\footnote{The origin of $a$ and $b$ is not discussed in literature \cite{Synaptic_plasticity}.} analogously displayed in \autoref{eq:sdsp_weight_update} from \cite{Synaptic_plasticity} occurs.
+or depression of amount $b$\footnote{The origin of $a$ and $b$ is not covered in \authorsSynapticPlasticity{}'s work \cite{Synaptic_plasticity}.}, analogously displayed in 
+\autoref{eq:sdsp_weight_update} from the work of \authorsSynapticPlasticity{} \cite{Synaptic_plasticity}, occurs.
 %
 \begin{equation}
     \centering
@@ -106,7 +110,7 @@ or depression of amount $b$\footnote{The origin of $a$ and $b$ is not discussed 
 If the conditions from \autoref{eq:sdsp_weight_update} are not satisfied or no spike arrives, 
 the synaptic weight drifts towards either high or low synaptic weight asymptotes dependent on the weights at a specific time $t$ 
 with respect to a threshold $\theta_W$ \cite{Synaptic_plasticity}.
-The \ac{SDSP} approach models synaptic weight $W$ decay as displayed in \autoref{eq:sdsp_weight_decay} from \cite{Synaptic_plasticity}.
+The \ac{SDSP} approach models synaptic weight $W$ decay as displayed in \autoref{eq:sdsp_weight_decay} from \authorsSynapticPlasticity{}'s paper \cite{Synaptic_plasticity}.
 %
 \begin{equation}
     \centering
@@ -120,7 +124,8 @@ The \ac{SDSP} approach models synaptic weight $W$ decay as displayed in \autoref
     \right.
 \end{equation}
 
-Other detailed models, such as \ac{LCP} are outlined in \cite{Synaptic_plasticity,simulation_STDP}.
+Other detailed models, such as \ac{LCP} are outlined by \authorsSynapticPlasticity{} \cite{Synaptic_plasticity} 
+and \authorssimulationSTDP{} \cite{simulation_STDP}.
 
 
 \paragraph{\textbf{Learning using \ac{STDP}}}
@@ -140,7 +145,7 @@ If the postsynaptic neuron fires before the presynaptic one, the spike has anoth
     \Delta w = \eta (x_{pre} - x_{tar})(w_{max}-w)^\mu
 \end{equation}
 %
-\autoref{eq:weight_update} from \cite{SNN} calculates the weight change after a postsynaptic spike arrives 
+\autoref{eq:weight_update} from \authorsSNN{}'s paper \cite{SNN} calculates the weight change after a postsynaptic spike arrives 
 (i.e. the synapse's importance is changed according to its influence on the postsynaptic neuron).
 $\eta$ is the learning rate, presynaptic trace $x_{pre}$ tracks the number of recent presynaptic spikes 
 (decaying if no spike arrives, increased by one otherwise), 
@@ -175,7 +180,7 @@ The model at hand displays similar behaviour as displayed in \autoref{fig:input_
     \tau \frac{dV}{dt} = (E_{rest} - V) + g_e(E_{exc} - V) + g_i(E_{inh} - V)
 \end{equation}
 %
-\autoref{eq:membrane_vol_pot} from \cite{SNN} describes the membrane voltage 
+\autoref{eq:membrane_vol_pot} from \authorsSNN{}'s paper \cite{SNN} describes the membrane voltage 
 (i.e. the value compared to the threshold $V_{thres}$ which determines whether the neuron fires) change over time constant $\tau$.
 $E_{rest}$ is the resting membrane potential, $E_{exc}, E_{inh}$ are equilibrium potentials of excitatory and inhibitory synapses, 
 and $g_e, g_i$ the conductances of excitatory and inhibitory synapses (i.e. the influence of respective synapses on membrane voltage of neuron) \cite{SNN}. 
@@ -185,7 +190,7 @@ adding to the voltage and the inhibitory synapses subtracting from the voltage.
 \begin{figure}[htbp]
     \center
     \includegraphics[width=0.3\textwidth]{pictures/input_pot_thres_output_altered.jpg}
-    \caption{The \ac{LIF} neuron firing mechanism from \cite{input_thres_output}.
+    \caption{The \ac{LIF} neuron firing mechanism displayed in \authorsinputThresOutput{}'s work \cite{input_thres_output}.
     \ac{LIF} neurons integrate incoming spikes and decay otherwise.
     If the membrane potential $V$ crosses the threshold $V_{thres}$, the neuron fires and thus, 
     enters a refractory period at the resting membrane potential.}
@@ -205,7 +210,7 @@ Otherwise, $g_e$/$g_i$ is decaying.
     \tau_{g_e} \frac{dg_e}{dt} = - g_e
 \end{equation}
 %
-The decay of $g_e$ ($g_i$ analogously) is computed using \autoref{eq:exc_conductance} from \cite{SNN}.
+The decay of $g_e$ ($g_i$ analogously) is computed using \autoref{eq:exc_conductance} from \authorsSNN{}'s paper \cite{SNN}.
 The change over time constant $\tau$ is an exponential decay.
 
 

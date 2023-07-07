@@ -8,12 +8,13 @@ even though it has proven to be difficult to find equivalent solutions in realit
 Concerning the difficulties of training a model which works with input values and their temporal dependencies researchers have already made 
 impressive efforts.
 The work of \authorsSNN{} \cite{SNN} proposes an unsupervised approach with formidable performance in a variety of situations.
-\authorsSNN{} \cite{SNN} and \authorsSynapticPlasticity{} \cite{Synaptic_plasticity} also emphasize the energy efficiency of \acp{SNN} on neuromorphic hardware.
+Not only \authorsSNN{} \cite{SNN}, but also \authorsSynapticPlasticity{} \cite{Synaptic_plasticity} emphasize the energy efficiency of 
+\acp{SNN} on neuromorphic hardware.
 Another reason for the usage of \acp{SNN} is their configurability, 
 i.e. high spiking thresholds leading to high accuracy and low thresholds resulting in short latencies \cite{ANN_SNN_conversion}.
 
 Besides the unsupervised approach proposed by \authorsSNN{} \cite{SNN}, there is a variety of supervised methods to train a \ac{SNN}, 
-for instance \ac{ANN}-\ac{SNN} conversion from \authorsDIETSNN{} \cite{DIET_SNN}.
+for instance \ac{ANN}-\ac{SNN} conversion by \authorsDIETSNN{} \cite{DIET_SNN}.
 Even though existing approaches perform well, the authors emphasize shortcomings and the potential for further research.
 For instance, it remains unclear whether a single model can explain \ac{STDP} at different synapses \cite{STDP_hebbian}.
 Furthermore, the biological interplay of factors such as calcium signals in certain cell types remains an ongoing field of research 
@@ -30,7 +31,7 @@ Since the simulation of synaptic plasticity dominates the computing costs of \ac
 for processing large numbers of small messages, i.e. spikes, 
 other strategies to improve run-time efficiency rely on (among others) neuromorphic hardware \cite{simulation_STDP}.
 This paper neglects the topic of neuromorphic hardware.
-Other work, such as the work by \authorsSynapticPlasticity{} \cite{Synaptic_plasticity}, 
+Other work, such as the one by \authorsSynapticPlasticity{} \cite{Synaptic_plasticity}, 
 covers several different implementations and offers a discussion about challenges (e.g. memory elements) and achievements 
 (e.g. successful implementation of synaptic rules in hardware) in this area.
 Yet another problem hindering the application of \acp{SNN} in real-world problems is the accessibility of certain elements, such as individual synapses and neurons, 
