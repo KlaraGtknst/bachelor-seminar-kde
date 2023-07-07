@@ -23,10 +23,9 @@ In addition to the accuracy with regard to the classification of the MNIST datas
 \ac{RT} is defined as the time between the presentation of a stimulus and the response (i.e. the first pool to reach the decision threshold).
 Usually, the \ac{RT} of misclassified digits is higher than the \ac{RT} of correctly classified digits.
 However, the network also makes fast errors.
-The results were verified with the Kolmogorov-Smirnov test, 
+The results were verified \cite{STDP_like} with the Kolmogorov-Smirnov test, 
 indicating that the correctly classified and misclassified \ac{RT} distributions are significantly different, 
-whereas the distributions for stimuli from the training and test set were not \cite{STDP_like}.
-\todo{nochmal. Was?}
+whereas the distributions for stimuli from the training and test set were not.
 The Kolmogorov-Smirnov test is a non-parametric test for evaluating whether two samples came from the same distribution function \cite{Kolmogorov_Smirnov}.
 
 The performance of the \ac{SNN} model is compared for different training set sizes $n_{train}$ \cite{STDP_like}.
@@ -35,13 +34,12 @@ The optimum training set size $n_{train} = 1000$ did not produce remarkably high
 
 
 % Original STDP paper
-In \autoref{img:test_acc} the authors of \cite{SNN} compare the performance of the \ac{SNN} model consisting of different numbers of excitatory neurons 
+In \autoref{img:test_acc} \authorsSNN{} \cite{SNN} compare the performance of the \ac{SNN} model consisting of different numbers of excitatory neurons 
 and different learning rules.
 The standard deviation of the test accuracy is indicated by the error bars.
 The black line denotes power-law weight dependence \ac{STDP}, the red one denotes exponential weight dependence \ac{STDP}, 
 the green one indicates pre-and-post \ac{STDP}, whereas the blue line's learning rule is \ac{TSTDP}.
-The differences between these learning rules are explained in \cite{SNN}.
-\todo{zitierung als satzbaustein. Wie sonst?}
+The differences between these learning rules are explained in the work of \authorsSNN{} \cite{SNN}.
 The visualization suggests that the highest number of excitatory neurons (i.e. 6400) produces the best results for all learning rules.
 The confusion matrix of \autoref{img:error_analysis} serves as an error analysis tool \cite{SNN}.
 The authors propose possible reasons for the distribution of misclassified digits.
