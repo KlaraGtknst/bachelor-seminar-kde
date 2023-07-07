@@ -3,15 +3,10 @@
 In order to find methods of computation requiring little power consumption, 
 researchers have started creating structures modelled on the neurons of the brain.
 \acp{SNN} are allegedly suitable means to tackle this task \cite{SNN}.
-They differ from normal \acp{ANN} in terms of their architecture and learning method.
-Their inputs are 1-bit spike trains as opposed to 32- or 64-bit messages of \acp{ANN} \cite{SNN}.
-The input of \acp{SNN} are streams of events which differs from the singular presentation of \acp{ANN} inputs \cite{ANN_SNN_conversion}.
-Moreover, instead of backpropagation used for \acp{ANN}, many \ac{SNN} models have different learning rules to optimise their weight, 
-such as \acfi{STDP} with exponential time dependence.
 The model presented in the following uses \acfi{LIF} neurons and lateral inhibition \cite{SNN}.
 Hence, the approach models the leak of current of real neurons, as well as competition among the neurons.
 
-Applications for this approach include pattern recognition \cite{SNN} and object shape recognition \cite{object_detection_SNN,multi_scale_STDP}.
+Applications for \acp{SNN} include pattern recognition \cite{SNN} and object shape recognition \cite{object_detection_SNN,multi_scale_STDP}.
 In both cases, the accuracy is surprisingly high for an unsupervised method.
 
 This paper is structured as followed:
