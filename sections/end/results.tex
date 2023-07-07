@@ -12,19 +12,21 @@ Since neurons that are not in their refractory period can integrate incoming exc
 increase their chance of firing, possibly not all neurons have the same chance of firing after the refractory period.
 
 % STDP-like paper
-The \cite{STDP_like} model was also evaluated on the MNIST dataset.
+The approach from \cite{STDP_like} was also evaluated on the MNIST dataset.
+\todo{zitierung verwirrt im satzbau, es war wohl the stdb\_like model und dann erst cite gemeint}
 The dataset is a suitable Benchmark for the \ac{SNN} model 
 since it provides different difficulty levels of categorization.
 However, the MNIST dataset is less complex than biological vision \cite{STDP_like}, 
 since projections on the retina greatly vary due to object position, size, pose, illumination condition and background \cite{multi_scale_STDP}.
 
-In addition to the accuracy with regard to the classification of the MNIST dataset impulses, \cite{STDP_like} presents \ac{RT} distributions.
+In addition to the accuracy with regard to the classification of the MNIST dataset impulses, \ac{RT} distributions are included \cite{STDP_like}.
 \ac{RT} is defined as the time between the presentation of a stimulus and the response (i.e. the first pool to reach the decision threshold).
 Usually, the \ac{RT} of misclassified digits is higher than the \ac{RT} of correctly classified digits.
 However, the network also makes fast errors.
 The results were verified with the Kolmogorov-Smirnov test, 
 indicating that the correctly classified and misclassified \ac{RT} distributions are significantly different, 
 whereas the distributions for stimuli from the training and test set were not \cite{STDP_like}.
+\todo{nochmal. Was?}
 The Kolmogorov-Smirnov test is a non-parametric test for evaluating whether two samples came from the same distribution function \cite{Kolmogorov_Smirnov}.
 
 The performance of the \ac{SNN} model is compared for different training set sizes $n_{train}$ \cite{STDP_like}.
@@ -39,8 +41,9 @@ The standard deviation of the test accuracy is indicated by the error bars.
 The black line denotes power-law weight dependence \ac{STDP}, the red one denotes exponential weight dependence \ac{STDP}, 
 the green one indicates pre-and-post \ac{STDP}, whereas the blue line's learning rule is \ac{TSTDP}.
 The differences between these learning rules are explained in \cite{SNN}.
+\todo{zitierung als satzbaustein. Wie sonst?}
 The visualization suggests that the highest number of excitatory neurons (i.e. 6400) produces the best results for all learning rules.
-The confusion matrix of \autoref{img:error_analysis} serves as an error analysis tool in \cite{SNN}.
+The confusion matrix of \autoref{img:error_analysis} serves as an error analysis tool \cite{SNN}.
 The authors propose possible reasons for the distribution of misclassified digits.
 The most common misclassification was the digit four as a nine \cite{SNN}.
 
@@ -59,6 +62,7 @@ The most common misclassification was the digit four as a nine \cite{SNN}.
 \end{figure}
 
 \begin{table}[]
+    \caption{Summary of methods compared in \cite{SNN}.}
     \begin{tabular}{|l|l|l|l|}
     \hline
     \textbf{Training type} & \textbf{(Un-) Supervised}    & \textbf{Learning rule}               & \textbf{Performance range} \\ \hline
@@ -66,15 +70,14 @@ The most common misclassification was the digit four as a nine \cite{SNN}.
     Spike-based            & Supervised                   & different incl. calcium variable & 91-96 \%                   \\ \hline
     Spike-based            & Unsupervised                 & rectangular/ exponential \ac{STDP}        & 93-95 \%                   \\ \hline
     \end{tabular}
-    \caption{Summary of methods compared in \cite{SNN}.}
     \label{tab:different-training-types}
 \end{table}
 
-\autoref{tab:different-training-types} is a summary of the table visualizing performances of different \acp{SNN} in \cite{SNN}.
+\autoref{tab:different-training-types} is a summary of the table visualizing performances of different \acp{SNN}.
 Rate-based learning methods achieve the best results.
 Supervised methods imply the usage of a teaching signal.
-The calcium variable from the second learning rule is occasionally used to model the influence of the $Ca^{2+}$ level on activation neurons observed in biology \cite{STDP_hebbian}:
-Presynaptic action potentials release neurotransmitters that bind to certain receptors and 
-when the postsynaptic activities provide sufficient constant membrane depolarization, the $Ca^{2+}$ level rises \cite{Synaptic_plasticity}.
-A large $Ca^{2+}$ rise is associated with \ac{LTP}, whereas modest $Ca^{2+}$ rise may result in \ac{LTD} \cite{STDP_hebbian}.
+%The calcium variable from the second learning rule is occasionally used to model the influence of the $Ca^{2+}$ level on activation neurons observed in biology \cite{STDP_hebbian}:
+%Presynaptic action potentials release neurotransmitters that bind to certain receptors and 
+%when the postsynaptic activities provide sufficient constant membrane depolarization, the $Ca^{2+}$ level rises \cite{Synaptic_plasticity}.
+%A large $Ca^{2+}$ rise is associated with \ac{LTP}, whereas modest $Ca^{2+}$ rise may result in \ac{LTD} \cite{STDP_hebbian}.
 The last learning rule from \autoref{tab:different-training-types} denotes the shape of the \ac{STDP} time window.
