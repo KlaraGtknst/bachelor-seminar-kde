@@ -87,10 +87,9 @@ when the postsynaptic activities provide sufficient constant membrane depolariza
 A large $Ca^{2+}$ rise is associated with \ac{LTP}, whereas modest $Ca^{2+}$ rise may result in \ac{LTD} \cite{STDP_hebbian}.
 The calcium concentration $C(t)$  modification with regard to the temporal interplay of decay and incrementation is outlined in \cite{simulation_STDP}.
 Whenever a presynaptic spike arrives, either potentiation of amount $a$ takes place, 
-\todo{ist das a (und später b) eine Konstante? Wird in Literaturquelle nicht erwähnt.}
 if the membrane potential $V_{mem}$ is higher than a certain threshold $V_{mth}$ and the 
 calcium concentration $C(t)$ is within certain bounds, 
-or depression of amount $b$ analogously displayed in \autoref{eq:sdsp_weight_update} from \cite{Synaptic_plasticity} occurs.
+or depression of amount $b$\footnote{The origin of $a$ and $b$ is not discussed in literature \cite{Synaptic_plasticity}.} analogously displayed in \autoref{eq:sdsp_weight_update} from \cite{Synaptic_plasticity} occurs.
 %
 \begin{equation}
     \centering
