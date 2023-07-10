@@ -47,7 +47,7 @@ There is a great variety of synaptic plasticity rules, ranging from abstract mod
 Instances of abstract models include those based on the timing of spikes, such as pair-based \ac{STDP} models.
 \autoref{eq:pair_based_weight_update} from \authorsSynapticPlasticity{}'s paper \cite{Synaptic_plasticity} shows the weight update of a pair-based \ac{STDP} model.
 $\Delta t = t_{post} - t_{pre}$ is the time difference between the presynaptic spike $t_{pre}$ and the postsynaptic spike $t_{post}$.
-If a postsynaptic spike arrives within the time window $\tau_+$ before a presynaptic one, potentiation occurs, i.e. the synaptic weight is increased. 
+If a postsynaptic spike arrives within the time window $\tau_+$ after a presynaptic one, potentiation occurs, i.e. the synaptic weight is increased. 
 Analogously to induce depression the postsynaptic spike needs to precede the presynaptic one within time window $\tau_-$.
 The amount of weight change depends on $\Delta t $ and the amplitude parameters $A^+$ and $A^-$.
 %
