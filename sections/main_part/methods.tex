@@ -133,8 +133,8 @@ The synapses of the \ac{SNN} are trained using unsupervised \acfi{STDP}, which h
 The weight of a connection between two neurons models a synapse.
 \ac{STDP} is a synaptic learning rule, which adapts weights of synapses according to their degree of causality \cite{STDP_like,multi_scale_STDP},
  i.e. how likely the input causes postsynaptic neuron excitation.
-\ac{STDP} increases synaptic weight if the postsynaptic neuron reacts immediately after the presynaptic neuron fires \cite{object_detection_SNN}.
-The goal of \ac{STDP} is to strengthen synapses of pre- and postsynaptic neuron pairs, 
+%\ac{STDP} increases synaptic weight if the postsynaptic neuron reacts immediately after the presynaptic neuron fires \cite{object_detection_SNN}.
+The goal of \ac{STDP} is to strengthen synapses, i.e. increase synaptic weight, of pre- and postsynaptic neuron pairs, 
 whose postsynaptic neuron reacts immediately after the presynaptic neuron fires \cite{object_detection_SNN}.
 If the postsynaptic neuron fires before the presynaptic one, the spike has another origin and thus, the synapse is weakened to disconnect the neurons.
 \ac{STDP} can be considered the transposition of the Hebbian learning rule in a temporal context \cite{STDP_vis_feat}.
